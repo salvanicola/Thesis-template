@@ -1,43 +1,61 @@
-
+\makeglossaries
 %**************************************************************
 % Acronimi
 %**************************************************************
 \renewcommand{\acronymname}{Acronimi e abbreviazioni}
-
-\newacronym[description={\glslink{apig}{Application Program Interface}}]
-    {api}{API}{Application Program Interface}
-
-\newacronym[description={\glslink{umlg}{Unified Modeling Language}}]
-    {uml}{UML}{Unified Modeling Language}
-
-\newacronym[description={\glslink{ucisg}{Unità Cinofile da Soccorso}}]
-    {ucis}{UCIS}{Unità Cinofile da Soccorso}
+% [description={\glslink{apig}{Application Programming Interface}}]
+% \newacronym
+%     {api}{API}{Application Program Interface}
+% [description={\glslink{umlg}{Unified Modeling Language}}]
+% \newacronym
+%     {uml}{UML}{Unified Modeling Language}
+% [description={\glslink{ucisg}{Unità Cinofile da Soccorso}}]
+% \newacronym
+%     {ucis}{UCIS}{Unità Cinofile da Soccorso}
+% [description={\glslink{xmlg}{eXstensible Markupd Language}}]
+% \newacronym
+%     {xml}{XML}{eXstensible Markupd Language}
+\newacronym{big}{BIG}{Best Intelligent Ground}
 
 %**************************************************************
 % Glossario
 %**************************************************************
-%\renewcommand{\glossaryname}{Glossario}
+\renewcommand{\glossaryname}{Glossario}
 
-\newglossaryentry{apig}
+\newglossaryentry{api}
 {
-    name=\glslink{api}{API},
-    text=Application Program Interface,
-    sort=api,
+    name=api,
     description={in informatica con il termine \emph{Application Programming Interface API} (ing. interfaccia di programmazione di un'applicazione) si indica ogni insieme di procedure disponibili al programmatore, di solito raggruppate a formare un set di strumenti specifici per l'espletamento di un determinato compito all'interno di un certo programma. La finalità è ottenere un'astrazione, di solito tra l'hardware e il programmatore o tra software a basso e quello ad alto livello semplificando così il lavoro di programmazione}
 }
 
-\newglossaryentry{umlg}
+\newglossaryentry{uml}
 {
-    name=\glslink{uml}{UML},
-    text=UML,
-    sort=uml,
-    description={in ingegneria del software \emph{UML, Unified Modeling Language} (ing. linguaggio di modellazione unificato) è un linguaggio di modellazione e specifica basato sul paradigma object-oriented. L'\emph{UML} svolge un'importantissima funzione di ``lingua franca'' nella comunità della progettazione e programmazione a oggetti. Gran parte della letteratura di settore usa tale linguaggio per descrivere soluzioni analitiche e progettuali in modo sintetico e comprensibile a un vasto pubblico}
+    name=uml,
+    description={in ingegneria del software \emph{UML, Unified Modeling Language} (ing. linguaggio di modellazione unificato) è un linguaggio di modellazione e specifica basato sul paradigma object-oriented. L'\emph{UML} svolge un'importantissima funzione di lingua franca nella comunità della progettazione e programmazione a oggetti. Gran parte della letteratura di settore usa tale linguaggio per descrivere soluzioni analitiche e progettuali in modo sintetico e comprensibile a un vasto pubblico}
 }
 
-\newglossaryentry{ucisg}
+\newglossaryentry{ucis}
 {
-  name=\glslink{ucis}{UCIS},
-  text=Unità Cinofile Italiane da Soccorso,
-  sort=ucis,
-  description={E' un'Associazione Nazionale di Volontariato, inserita nell'Albo istituito presso il Dipartimento di Protezione Civile. Raggruppa, tutela e coordina i Soccorritori Cinofili presenti sul Territorio Nazionale.}
+    name=ucis,
+    sort=ucis,
+    text=Unità Cinofile Italiane da Soccorso,
+    description={É un'Associazione Nazionale di Volontariato, inserita nell'Albo istituito presso il Dipartimento di Protezione Civile. Raggruppa, tutela e coordina i Soccorritori Cinofili presenti sul Territorio Nazionale}
+}
+
+\newglossaryentry{UCIS Report Tool}
+{
+  name=UCIS Report Tool,
+  description={Applicazione in dotazione attualmente a UCIS sviluppata 5 anni fa e pubblicata da Alternative Studio nel 2018}
+}
+
+\newglossaryentry{Java}
+{
+  name=Java,
+  description={ fsdf s sadf }
+}
+
+\newglossaryentry{xml}
+{
+  name=xml,
+  description={ FGGSDF }
 }
