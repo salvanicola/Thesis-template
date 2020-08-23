@@ -6,6 +6,35 @@
 \chapter{Introduzione}
 \label{cap:introduzione}
 %**************************************************************
+\section{Convenzioni tipografiche}
+
+Riguardo la stesura del testo, relativamente al documento sono state adottate le seguenti convenzioni tipografiche:
+\begin{itemize}
+	\item gli acronimi, le abbreviazioni e i termini ambigui o di uso non comune menzionati vengono definiti nel glossario, situato alla fine del presente documento;
+	\item per la prima occorrenza dei termini riportati nel glossario viene utilizzata la seguente nomenclatura: \emph{parola}\glsfirstoccur;
+	\item i termini in lingua straniera o facenti parti del gergo tecnico sono evidenziati con il carattere \emph{corsivo}.
+\end{itemize}
+
+\section{Scopo del documento}
+Qui devo scrivere i contenuti di ciò che dirò.
+
+%**************************************************************
+
+\subsection{Organizzazione del testo}
+
+\begin{description}
+    \item[{\hyperref[cap:processi-metodologie]{Il secondo capitolo}}] descrive ...
+
+    \item[{\hyperref[cap:descrizione-stage]{Il terzo capitolo}}] approfondisce ...
+
+    \item[{\hyperref[cap:analisi-requisiti]{Il quarto capitolo}}] approfondisce ...
+
+    \item[{\hyperref[cap:progettazione-codifica]{Il quinto capitolo}}] approfondisce ...
+
+    \item[{\hyperref[cap:verifica-validazione]{Il sesto capitolo}}] approfondisce ...
+
+    \item[{\hyperref[cap:conclusioni]{Nel settimo capitolo}}] descrive ...
+\end{description}
 
 % Introduzione al contesto applicativo.\\
 % \noindent Esempio di utilizzo di un termine nel glossario \\
@@ -35,30 +64,42 @@ Alternative Studio ha pensato, quindi, di aprire una posizione perfetta per un l
 
 %**************************************************************
 
-\section{Scopo del documento}
-Qui devo scrivere i contenuti di ciò che dirò.
+\section{Metodo di Lavoro}
+
+Dato le contenute risorse umane a disposizione Alternative Studio adotta un ciclo di sviluppo software \gls{Incrementale} con qualche introduzione di processi da quello \gls{Agile}, in particolared dal metodo \gls{Scrum}. Durante lo stage lo studente è stato incaricato anche di introdurre qualche concetto di questi cicli di vita all'interno del contesto aziendale, come quello di \gls{Sprint} e di \gls{Daily Scrum}. \\
+\noindent A supporto dello sviluppo del progetto sono stati utilizzati i seguenti strumenti:
+\begin{itemize}
+	\item Gitlab: software open source per la gestione di repository \gls{Git} e supporto alla Continous Integration.
+	\begin{figure}[htbp]
+	\begin{center}
+	\includegraphics[height=3cm]{gitlab}
+	\end{center}
+	\end{figure}
+  Utile anche per l'assegnazione di piccole tasks e fissare scadenze, milestone e monitoraggio delle statistiche del progetto.
+  \item Slack:
+  \item Telegram:
+  \item WebStorm: potente IDE, modulare, che con l'aggiunta di plugin acquista funzionalità, come il conteggio delle ore di programmazione, scadenze e gestione del repository \gls{Git} locale.
+  \begin{figure}[htbp]
+  \begin{center}
+  \includegraphics[height=3cm]{webstorm}
+  \end{center}
+  \end{figure}
+\end{itemize}
 
 %**************************************************************
-\section{Organizzazione del testo}
 
-% \begin{description}
-%     \item[{\hyperref[cap:processi-metodologie]{Il secondo capitolo}}] descrive ...
-%
-%     \item[{\hyperref[cap:descrizione-stage]{Il terzo capitolo}}] approfondisce ...
-%
-%     \item[{\hyperref[cap:analisi-requisiti]{Il quarto capitolo}}] approfondisce ...
-%
-%     \item[{\hyperref[cap:progettazione-codifica]{Il quinto capitolo}}] approfondisce ...
-%
-%     \item[{\hyperref[cap:verifica-validazione]{Il sesto capitolo}}] approfondisce ...
-%
-%     \item[{\hyperref[cap:conclusioni]{Nel settimo capitolo}}] descrive ...
-% \end{description}
-\section{Convenzioni tipografiche}
+\section{Tecnologie utilizzate}
 
-Riguardo la stesura del testo, relativamente al documento sono state adottate le seguenti convenzioni tipografiche:
-\begin{itemize}
-	\item gli acronimi, le abbreviazioni e i termini ambigui o di uso non comune menzionati vengono definiti nel glossario, situato alla fine del presente documento;
-	\item per la prima occorrenza dei termini riportati nel glossario viene utilizzata la seguente nomenclatura: \emph{parola}\glsfirstoccur;
-	\item i termini in lingua straniera o facenti parti del gergo tecnico sono evidenziati con il carattere \emph{corsivo}.
-\end{itemize}
+Lo stage si è focalizzato sull'utilizzo di tecnologie mobile per lo sviluppo di applicazioni per smartphone. Queste sono spesso nuove e in continua evoluzione, è per questo che Alternative Studio ha avviato uno studio approfondito per scegliere quelle adatte allo sviluppo della propria applicazione. 
+
+\subsection{Ionic}
+
+\gls{Ionic} è un \gls{framework} open source che fornisce strumenti agli sviluppatori, come librerie grafiche e plugins nativi per dialogare con \gls{Android} e \gls{iOS}. Esso permette lo sviluppo mobile utilizzando tecnologie standard web come Angular, React e Vue, evitando lo sviluppo in linguaggio nativo dei singoli sistemi operativi.
+Questo è reso possibili da wrapper esistenti su ogni piattaforma volti a eseguire l'applicazione.
+
+\subsection{Angular}
+
+Come framework web per lo sviluppo \gls{frontend} si è utilizzato Angular. Nonostante l'esperenzia di
+
+
+%**************************************************************
