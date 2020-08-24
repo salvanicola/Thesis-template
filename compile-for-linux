@@ -14,6 +14,7 @@ echo --------------------
 
 pdflatex -output-directory=$DIR $NAME
 biber $DIR/$NAME
+pdflatex -output-directory=$DIR $NAME
 makeglossaries -s ./$NAME.ist -t ./$NAME.glg -o ./$NAME.gls ./$NAME.glo
 makeglossaries -s ./$NAME.ist -t ./$NAME.alg -o ./$NAME.acr ./$NAME.acn
 
@@ -21,6 +22,7 @@ makeglossaries -s ./$NAME.ist -t ./$NAME.alg -o ./$NAME.acr ./$NAME.acn
 
 pdflatex -output-directory=$DIR $NAME
 biber $DIR/$NAME
+pdflatex -output-directory=$DIR $NAME
 makeglossaries -s ./$NAME.ist -t ./$NAME.glg -o ./$NAME.gls ./$NAME.glo
 makeglossaries -s ./$NAME.ist -t ./$NAME.alg -o ./$NAME.acr ./$NAME.acn
 
