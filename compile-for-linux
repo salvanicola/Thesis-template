@@ -28,8 +28,8 @@ echo -------------------------
 echo - Generazione Documento -
 echo -------------------------
 
-pdflatex -synctex=1 -output-directory=$DIR $NAME
-pdflatex -synctex=1 -output-directory=$DIR $NAME
+pdflatex -output-directory=$DIR $NAME
+pdflatex -output-directory=$DIR $NAME
 
 echo ---------------------------------
 echo - Pulisco -
