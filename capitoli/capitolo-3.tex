@@ -96,4 +96,39 @@ esempio la build in cloud dell'applicazione, eliminando i problemi derivati dall
 \end{figure}
 
 Ionic è un framework open-source rilasciato da Drifty Co. nel 2013. La prima versione di Ionic non era altro che un SDK che metteva a disposizione una
-piattaforma AngularJS per lo sviluppo di applicazioni con Cordova. Le ultime versioni di Ionic 
+piattaforma AngularJS per lo sviluppo di applicazioni con Cordova. Le ultime versioni di Ionic hanno aggiunto nuove funzionalità, tra le
+quali la possibilità di scegliere di sviluppare in Angular, React o Vue. Inoltre è stato rilasciato un software per la build e le API proprietario,
+chiamato Capacitor, che racchiude al suo interno Cordova, aggiornandolo e adeguandolo alle nuove SDK dei vari Sistemi Operativi. Perciò derivando
+da Apache Cordova, contiene tutte le sue funzionalità, e di conseguenza tutti i suoi pregi, ma anche alcuni dei suoi difetti. \\
+Testando Ionic mi sono accorto di alcuni punti deboli delle applicazioni ibride. \\
+In primo luogo le performance. Le applicazioni ibride hanno bisogno della WebView che non è altro che un altro processo di supporto per
+renderizzare pagine web. Inoltre è un dato di fatto che le applicazioni web sono molto esose dal punto di vista delle risorse rispetto a un
+applicazione scritta in linugaggio nativo per quel dato sistema operativo. In secondo luogo non si ha controllo totale sui plugin che
+servono a interfacciarsi con il dispositivo. Le librerie native sono molto più ricche e specifiche, ma soprattutto non richiedono
+l'intervento di software di terze parti, come Ionic e Capacitor, per funzionare. Questi problemi sono emersi subito, una volta installato
+ionic e fatto una veloce build dell'applicazione ci siamo accorti della poca reattività su dispositivi datati e della difficoltà nel
+personalizzare i plugin messi a disposizione. \\
+Come mai \acrlong{asd} si è messa in gioco in questo campo? Da alcune ricerche è emerso che la maggior parte delle aziende che sviluppano
+per mobile si stanno muovendo verso le applicazioni ibride. I motivi non sono difficili da comprendere. Il fatto che un unico codice può
+essere eseguito su diversi dispositivi è sicuramente un fattore molto importante. Finora le aziende dovevano sviluppare applicazioni diverse
+quindi moltiplicando il costo e le risorse. Supponendo di utilizzare solo linguaggi nativi, \acrlong{asd} avrebbe dovuto sviluppare almeno
+due appplicazioni differenti, una per Android e una per iOS, riutilizzando pochissimo codice e impiegando almeno il doppio di risorse.
+Sarebbero stati necessari almeno altri due sviluppatori e i tempi di fornitura sarebbero stati decisamente più lunghi. 
+
+\begin{wrapfigure}{l}{0.45\textwidth}
+  \includegraphics[width=0.9\linewidth]{sviluppatori} 
+  \caption{Caption1}
+  \label{fig:sviluppatori}
+\end{wrapfigure}
+
+Inoltre gli sviluppatori con esperienza in API native non sono molto comuni. Non sono rari invece sviluppatori web, dei quali fa parte anche il mio
+tutor, come dimostra la figura \autoref{fig:sviluppatori}. \\
+Da notare anche come il mondo si stia muovendo molto velocemente verso il web. Moltissime delle applicazioni tuttora si basano su tecnologie
+che sono sviluppate per esso, come AWS di Amazon, Azure di Microsoft, Google Cloud e molti altri. Sviluppare in questo senso è
+anche un investimento su un mondo che è aperto a opportunità continue e di conseguenza al futuro.
+
+\subsubsection{Flutter}
+Nonostante mi ritenessi soddisfatto dell'impressione di Ionic, ho preso in cosiderazione un'ultima alternativa, Flutter. Flutter è un
+framework che si occupa della creazione di interfacce grafiche native per iOS, Android e desktop. Sviluppato da Google e rilasciato nel
+2017, Flutter utilizza un linguaggio proprietario Dart, presentato come alternativa a Javascript. L'engine, sviluppata in \gls{C++}, si occupa di
+renderizzare i widget, oggetti grafici scritti dallo sviluppatore, 
