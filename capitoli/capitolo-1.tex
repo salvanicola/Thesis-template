@@ -23,17 +23,15 @@ Qui devo scrivere i contenuti di ciò che dirò.
 \subsection{Organizzazione del testo}
 
 \begin{description}
-    \item[{\hyperref[cap:processi-metodologie]{Il secondo capitolo}}] descrive ...
 
-    \item[{\hyperref[cap:descrizione-stage]{Il terzo capitolo}}] approfondisce ...
+    \item[{\hyperref[cap:introduzione]{Il primo capitolo}}] descrive il contesto aziendale e alcune delle tecnologie utilizzate durante l'esperienza dello stage.
+
+    \item[{\hyperref[cap:descrizione-stage]{Il secondo capitolo}}] approfondisce i contenuti del progetto di stage e i motivi della scelta.
+
+    \item[{\hyperref[cap:ilprogetto]{Il terzo capitolo}}] approfondisce i contenuti della proposta di stage.
 
     \item[{\hyperref[cap:analisi-requisiti]{Il quarto capitolo}}] approfondisce ...
 
-    \item[{\hyperref[cap:progettazione-codifica]{Il quinto capitolo}}] approfondisce ...
-
-    \item[{\hyperref[cap:verifica-validazione]{Il sesto capitolo}}] approfondisce ...
-
-    \item[{\hyperref[cap:conclusioni]{Nel settimo capitolo}}] descrive ...
 \end{description}
 
 % Introduzione al contesto applicativo.\\
@@ -48,9 +46,10 @@ Qui devo scrivere i contenuti di ciò che dirò.
 \section{L'azienda}
 
 \begin{figure}[htbp]
-\begin{center}
-\includegraphics[height=6cm]{app_logo}
-\end{center}
+	\begin{center}
+		\includegraphics[height=6cm]{app_logo}
+	\end{center}
+	\caption {Logo di \acrlong{asd}.}
 \end{figure}
 
 Alternative Studio è una web agency che fornisce soluzioni professionali su misura, costruite secondo le esigenze del cliente. Si occupa principalmente di sviluppo web e marketing. È un'azienda piccola che raccoglie poche risorse umane, ma molte energie che continuano a spingere per crescere. Opera da appena sei anni nel settore del web development, ma ha abbracciato anche altre iniziative, collaborando in progetti più grandi con altre realtà.
@@ -105,6 +104,7 @@ Gitlab è un software open source per la gestione di repository \gls{Git} e supp
 	\begin{center}
 		\includegraphics[height=8.5cm]{gitlab_schermata}
 	\end{center}
+	\caption {Schermata di nuova issue del software Gitlab.}
 \end{figure}
 
 \noindent Per la prima parte è stato importante il suo strumento di \gls{Issue Tracking System} con il quale si sono gestite le tasks e le loro scadenze.
@@ -122,21 +122,19 @@ Causa il telelavoro, durante il progetto sono stati fondamentali gli strumenti d
 \subsubsection{Codifica}
 In dotazione ad Alternative Studio ho utilizzato WebStorm, potente IDE parte della suite di JetBrains. Una delle sue caratteristiche principali sono la sua modularità, grazie allo store di plugins disponibili che aggiungono funzionalità, come il conteggio delle ore di programmazione e gestione del repository \gls{Git} locale. \\
 Inoltre si integra molto bene con le tecnologie web, come Angular, mettendo a disposizione il suo ambiente di building e di testing direttamente all'interno dell'IDE.
+
 \begin{figure}[htbp]
-	\begin{center}
+	\begin{subfigure}{0.5\textwidth}
 		\includegraphics[height=2cm]{webstorm}
 		\caption{Logo di WebStorm}
-	\end{center}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[height=2cm]{studio}
+		\caption{Logo di Android Studio}
+	\end{subfigure}
 \end{figure}
 
 \subsubsection{Android Studio}
-Android Studio è un IDE disegnato appositamente per lo sviluppo Android. Esso deriva da Intellij IDEA, software molto diffuso prodotto dal team JetBrains, come lo stesso WebStorm utilizzato.
-
-\begin{figure}[htbp]
-	\begin{center}
-		\includegraphics[height=2cm]{studio}
-		\caption{Logo di Android Studio}
-	\end{center}
-\end{figure}
+Android Studio fa parte sempre del pacchetto IDEA di JetBrains ed è una versione molto ridotta di Intellij IDEA. A differenza del suo fratello maggiore è open source e ottimizzato per lo sviluppo Android. I linguaggi nativi utilizzabili in questo IDE sono principalmente \gls{Go} e \gls{java}. Utilizza gradle come strumento automatico per la build dei progetti ed è estensibile come le altre applicazioni IDEA tramite plugins.
 
 %**************************************************************

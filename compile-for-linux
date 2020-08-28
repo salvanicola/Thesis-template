@@ -20,9 +20,9 @@ makeglossaries -d output tesi
 
 # Due volte because Latex
 
-pdflatex -output-directory=$DIR $NAME
-biber $DIR/$NAME
-makeglossaries -d output tesi
+# pdflatex -output-directory=$DIR $NAME
+# biber $DIR/$NAME
+# makeglossaries -d output tesi
 
 echo -------------------------
 echo - Generazione Documento -
@@ -30,6 +30,8 @@ echo -------------------------
 
 pdflatex -output-directory=$DIR $NAME
 pdflatex -output-directory=$DIR $NAME
+
+evince output/tesi.pdf &
 
 echo ---------------------------------
 echo - Pulisco -

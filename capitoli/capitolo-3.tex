@@ -3,28 +3,97 @@
 % !TEX root = ../tesi.tex
 
 %**************************************************************
-\chapter{Descrizione dello stage}
-\label{cap:descrizione-stage}
+\chapter{Svolgimento del progetto}
+\label{cap:ilprogetto}
 %**************************************************************
 
-\intro{Breve introduzione al capitolo}
+% \intro{Breve introduzione al capitolo}
 
 %**************************************************************
-\section{Introduzione al progetto}
+\section{Analisi e pianificazione}
+
+\subsection{Analisi}
+Il mio stage è iniziato quando ormai l'analisi era finita, quindi non ho avuto nessun contatto con il proponente. Tuttavia sono stato messo subito al corrente dei
+requisiti individuati e sono stati inseriti negli obiettivi del progetto di stage, quindi già esplicati nel capitolo precedente. Essendo un refactoring di un applicazione
+già esistente parte dei requisiti erano già stati stabiliti, quindi elencherò i principali cambiamenti richiesti. Utilizzerò come notazione R+(F|Q|V)+X+(D|O), dove:
+
+\begin{itemize}
+  \item R: requisito;
+  \item F: funzionale;
+  \item Q: qualitativo;
+  \item V: di vincolo;
+  \item X: numero progressivo;
+  \item D: desiderabile;
+  \item O: obbligatorio;
+  \item Z: opzionale.
+\end{itemize}
+
+Alcuni dei requisiti più importanti individuati sono riportati nella tabella \autoref{tab:requisiti}, con codice e relativa descrizione:
+
+\renewcommand{\arraystretch}{2}
+\begin{longtable}{|p{4cm}|p{10cm}|}%
+  \caption{Tabella del tracciamento dei requisti funzionali} 
+  \label{tab:requisiti} \\
+  
+    \hline
+    \textbf{Requisito} & \textbf{Descrizione} \\
+    \hline
+    \endhead
+    RF1O     & L'interfaccia permette di fare il login nel sistema gestionale di UCIS \\ \hline
+    RQ2O     & L'applicazione riconosce se è già stato effettuato un login e utilizza i dati salvati per effettuarlo \\ \hline
+    RQ3O     & L'applicazione deve funzionare offline se la persona è già autenticata \\ \hline
+    RV5O     & I dati dell'account non vanno salvati nella memoria, ma nel sistema Android \\ \hline
+    RF8O     & L'interfaccia permette di creare attività \\ \hline
+    RF9O     & L'interfaccia permette di visualizzare un'attività \\ \hline
+    RF10O     & L'interfaccia permette di avviare la registrazione di un'attività \\ \hline
+    RV18O     & L'applicazione deve essere scritta con uno strumento che permetta lo stesso codice per tutte le piattaforme \\ \hline
+\end{longtable}%
 
 %**************************************************************
-\section{Analisi preventiva dei rischi}
+\subsection{Pianificazione}
 
-Durante la fase di analisi iniziale sono stati individuati alcuni possibili rischi a cui si potrà andare incontro. Si è quindi proceduto a elaborare delle possibili soluzioni per far fronte a tali rischi.
-\begin{risk}{Performance del simulatore hardware}
-    \riskdescription{le performance del simulatore hardware e la comunicazione con questo potrebbero risultare lenti o non abbastanza buoni da causare il fallimento dei test}
-    \risksolution{coinvolgimento del responsabile a capo del progetto relativo il simulatore hardware}
-    \label{risk:hardware-simulator}
-\end{risk}
+Come specificato dal requisito RV18O si era alla ricerca di un framework crossplatform. Di seguito alcune delle tecnologie che abbiamo analizzato e alcuni dei motivi per
+cui non sono stati scelti.
 
-%**************************************************************
-\section{Requisiti e obiettivi}
+\subsubsection{Cordova e PhoneGap}
 
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[height=2.5cm]{cordova}
+		\caption{Logo di Cordova}
+	\end{center}
+\end{figure}
 
-%**************************************************************
-\section{Pianificazione}
+La prima tecnologia con cui sono stato a contatto è stato il framework Cordova. Il software è stato acquisito da Adobe nel 2011 mantenendolo \gls{open source} e
+rilasciandolo nel 2013 con il nome di Apache Cordova. Stiamo parlando di un framework che permette attraverso alcuni tools di creare applicazioni utilizzando CSS3, HTML5 e
+Javascript, evitando allo sviluppatore di affidarsi alle API specifiche del sistema operativo. Il pregio di questa tecnologia è il fatto che la stessa
+applicazione non dovrà essere scritta in Java per Android, in XCode o Swift per iOS, ma avrà un codice unico che sarà adattato per i singoli sistemi operativi. \\
+Tutto ciò funziona tramite le WebView native. Le WebView sono delle componenti delle applicazioni utilizzate per visualizzare contenuti web. Queste sono
+sviluppate dai sistemi operativi e non fanno altro che renderizzare ciò che è stato scritto con linguaggio HTML5, CSS3, Javascript. Per facilitarne la
+comprensione si possono immaginare come delle pagine web visualizzate all'interno di un browser, senza gli elementi tipici di esso (come la barra dell'URL,
+delle tab o le opzioni). \\
+Le applicazioni sviluppate in questo modo si possono considerare sia in parte \gls{web-based}, sia in parte native perché utilizzano e hanno accesso a tutti i componenti
+hardware della piattaforma sulla quale vengono eseguite. Ciò avviene tramite i plugin, che possono essere parte del framework, oppure, tramite API apposite,
+scritti dallo sviluppatore stesso. Inoltre l'applicazione può essere impacchettata, installata o caricata negli store ufficiali come una qualunque altra nativa.
+\\
+La forza di Cordova e del fatto che sia open source, sta nel fatto che possiede una libreria vastissima di plugin utilizzabili che forniscono un controllo
+totale sul dispositivo, come se si sviluppasse dal linguaggio nativo. Uno dei plugin che abbiamo immediatamente ricercato, è quello che si occupa del
+tracciamento GPS continuo in \gls{background}. Siamo andati quindi a creare un primo prototipo di applicazione installando solamente quel plugin per semplice
+test. Durante questo veloce procedimento abbiamo però riscontrato diversi problemi nell'installazione delle varie componenti o nella compatibilità con altre
+librerie (come nel nostro caso con le \gls{SDK} di Android). L'impressione di questo software non è stata positiva, perché mi è sembrato vecchio
+e poco mantenuto. Informandomi poi ho notato che le varie aziende, che lo utilizzavano come framework di sviluppo si stavano muovendo su altri software nuovi e
+più aggiornati.\\
+Menzione d'obbligo è da fare ad Adobe PhoneGap, nato come versione non \gls{open source} di Cordova, che fornisce a pagamento servizi molto interessanti, come ad
+esempio la build in cloud dell'applicazione, eliminando i problemi derivati dall'ambiente di sviluppo sul quale si sta lavorando.
+
+\subsubsection{Ionic e Capacitor}
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[height=2.5cm]{ionic}
+		\caption{Logo di Ionic}
+	\end{center}
+\end{figure}
+
+Ionic è un framework open-source rilasciato da Drifty Co. nel 2013. La prima versione di Ionic non era altro che un SDK che metteva a disposizione una
+piattaforma AngularJS per lo sviluppo di applicazioni con Cordova. Le ultime versioni di Ionic 
