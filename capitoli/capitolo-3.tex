@@ -108,12 +108,6 @@ servono a interfacciarsi con il dispositivo. Le librerie native sono molto più 
 l'intervento di software di terze parti, come Ionic e Capacitor, per funzionare. Questi problemi sono emersi subito, una volta installato
 ionic e fatto una veloce build dell'applicazione ci siamo accorti della poca reattività su dispositivi datati e della difficoltà nel
 personalizzare i plugin messi a disposizione. \\
-Come mai \acrlong{asd} si è messa in gioco in questo campo? Da alcune ricerche è emerso che la maggior parte delle aziende che sviluppano
-per mobile si stanno muovendo verso le applicazioni ibride. I motivi non sono difficili da comprendere. Il fatto che un unico codice può
-essere eseguito su diversi dispositivi è sicuramente un fattore molto importante. Finora le aziende dovevano sviluppare applicazioni diverse
-quindi moltiplicando il costo e le risorse. Supponendo di utilizzare solo linguaggi nativi, \acrlong{asd} avrebbe dovuto sviluppare almeno
-due appplicazioni differenti, una per Android e una per iOS, riutilizzando pochissimo codice e impiegando almeno il doppio di risorse.
-Sarebbero stati necessari almeno altri due sviluppatori e i tempi di fornitura sarebbero stati decisamente più lunghi. 
 
 \begin{wrapfigure}{l}{0.45\textwidth}
   \includegraphics[width=0.9\linewidth]{sviluppatori} 
@@ -121,14 +115,41 @@ Sarebbero stati necessari almeno altri due sviluppatori e i tempi di fornitura s
   \label{fig:sviluppatori}
 \end{wrapfigure}
 
+Da alcune ricerche da noi effettuate è emerso che la maggior parte delle aziende che sviluppano per mobile si stanno muovendo verso le
+applicazioni ibride. I motivi non sono difficili da comprendere. Il fatto che un unico codice può essere eseguito su diversi dispositivi è
+sicuramente un fattore molto importante. Finora le aziende dovevano sviluppare applicazioni diverse quindi moltiplicando il costo e le
+risorse. Supponendo di utilizzare solo linguaggi nativi, \acrlong{asd} avrebbe dovuto sviluppare almeno due appplicazioni differenti, una
+per Android e una per iOS, riutilizzando pochissimo codice e impiegando almeno il doppio di risorse. Sarebbero stati necessari almeno altri
+due sviluppatori e i tempi di fornitura sarebbero stati decisamente più lunghi. \\
 Inoltre gli sviluppatori con esperienza in API native non sono molto comuni. Non sono rari invece sviluppatori web, dei quali fa parte anche il mio
 tutor, come dimostra la figura \autoref{fig:sviluppatori}. \\
 Da notare anche come il mondo si stia muovendo molto velocemente verso il web. Moltissime delle applicazioni tuttora si basano su tecnologie
 che sono sviluppate per esso, come AWS di Amazon, Azure di Microsoft, Google Cloud e molti altri. Sviluppare in questo senso è
 anche un investimento su un mondo che è aperto a opportunità continue e di conseguenza al futuro.
 
-\subsubsection{Flutter}
-Nonostante mi ritenessi soddisfatto dell'impressione di Ionic, ho preso in cosiderazione un'ultima alternativa, Flutter. Flutter è un
-framework che si occupa della creazione di interfacce grafiche native per iOS, Android e desktop. Sviluppato da Google e rilasciato nel
-2017, Flutter utilizza un linguaggio proprietario Dart, presentato come alternativa a Javascript. L'engine, sviluppata in \gls{C++}, si occupa di
-renderizzare i widget, oggetti grafici scritti dallo sviluppatore, 
+\subsubsection{Flutter e Xamarin}
+Nonostante mi ritenessi soddisfatto dell'impressione di Ionic, ho preso in cosiderazione un'ultima alternativa, Flutter. \\
+Flutter è un framework che si occupa della creazione di interfacce grafiche native per iOS, Android e desktop. Sviluppato da Google e
+rilasciato nel 2018, utilizza un linguaggio proprietario Dart, presentato come alternativa a Javascript. L'engine, sviluppata in
+\gls{C++}, si occupa di renderizzare i widget, oggetti grafici scritti dallo sviluppatore. Le applicazioni in Flutter quindi possono essere
+eseguite su tutti i dispositivi nei quali è presente la VM di Dart e il suo motore grafico. Attualmente questi sono implementati in iOS e
+Android e su alcuni browser. \\
+
+\begin{figure}[h]
+  \includegraphics[width=0.9\linewidth]{flutterframe} 
+  \caption{Architettura di Flutter}
+  \label{fig:flutter}
+\end{figure}
+
+L'ovvia conseguenza di questo approccio sono le migliori prestazioni rispetto alle applicazioni web-based, eseguite su una WebView.
+Tuttavia il problema riscontrato in questo tipo di tecnologia è il fatto che si dovesse utlizzare un linguaggio proprietario, Dart, che
+fosse utile solo al campo dello sviluppo mobile. Inoltre tutti i lati positivi di un framework web non valgono anche in questo caso. Di
+fatto l'unica cosa che Flutter condivide con Ionic è il concetto di crossplatform. \\
+Cito anche Xamarin, framework sviluppato da Microsoft, precedente a Flutter che utilizza come linguaggio \gls{C\#}. Le
+caratterisitiche sono molto simili alla proposta di Google e non mi dilungherò nel descriverlo.
+
+\subsubsection{La scelta}
+
+Dopo aver valutato le varie scelte per i motivi su citati, io e il mio tutor abbiamo optato per l'utilizzo di Ionic e Capacitor. Abbiamo
+pensato infatti che fosse un giusto compromesso tra innovazione e semplicità d'uso, non rinunciando però al bagaglio di funzionalità che
+venivano offerte da esse.
