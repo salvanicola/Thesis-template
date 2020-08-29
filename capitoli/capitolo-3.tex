@@ -145,7 +145,7 @@ L'ovvia conseguenza di questo approccio sono le migliori prestazioni rispetto al
 Tuttavia il problema riscontrato in questo tipo di tecnologia è il fatto che si dovesse utlizzare un linguaggio proprietario, Dart, che
 fosse utile solo al campo dello sviluppo mobile. Inoltre tutti i lati positivi di un framework web non valgono anche in questo caso. Di
 fatto l'unica cosa che Flutter condivide con Ionic è il concetto di crossplatform. \\
-Cito anche Xamarin, framework sviluppato da Microsoft, precedente a Flutter che utilizza come linguaggio \gls{C\#}. Le
+Cito anche Xamarin, framework sviluppato da Microsoft, precedente a Flutter che utilizza come linguaggio \gls{Csharp}. Le
 caratterisitiche sono molto simili alla proposta di Google e non mi dilungherò nel descriverlo.
 
 \subsubsection{La scelta}
@@ -153,3 +153,26 @@ caratterisitiche sono molto simili alla proposta di Google e non mi dilungherò 
 Dopo aver valutato le varie scelte per i motivi su citati, io e il mio tutor abbiamo optato per l'utilizzo di Ionic e Capacitor. Abbiamo
 pensato infatti che fosse un giusto compromesso tra innovazione e semplicità d'uso, non rinunciando però al bagaglio di funzionalità che
 venivano offerte da esse.
+
+\section{Progettazione}
+
+\subsection{Analisi delle tecnologie da utilizzare}
+
+Una volta scelte le componenti da utilizzare non c'è rimasto che studiarle per valutarne una eventuale architettura. Sono andato così a
+realizzare un piccolo progetto con Ionic per capire bene il suo funzionamento. \\
+L'interfaccia di Ionic è una \gls{cli}, che permette tramite un comando di inizializzazione di creare un progetto, scegliendo il framework
+web da utilizzare e un template di progetto dal quale partire. Per comprendere la progettazione front-end del progetto bisogna prima
+soffermarsi sullo studio di Angular.
+
+\subsubsection{Angular}
+
+Ci sono dei concetti fondamentali di Angular che ho utilizzato per l'implementazione dell'applicazione.
+\begin{itemize}
+  \item Il primo tra questi è quello di \textbf{module}. Un'applicazione Angular è infatti costituita da \textit{NgModules} che
+  costituiscono il blocco fondamentale dal quale partire. Essi sono definiti come il contesto di compilazione nel quale vengono eseguite
+  tutte le altre componenti. Esiste un modulo principale che solitamente è chiamato AppModule e costituisce la \textit{root} dell'applicazione web.
+  \item Le viste sono definite dai \textbf{components}. Ognuno di essi sarà infatti composto da tutti gli elementi grafici e il codice
+  correlato (HTML5, SCSS), e dai loro comportamenti.
+  \item  Il lato \gls{backend} dell'applicazione è rappresentato dai \textbf{services}. Sono definiti per contenere la logica, inoltre sono
+  \textit{Injectable}, cioè esiste un'istanza univoca di ogni servizio che può essere inserita all'interno dei \textit{components} 
+\end{itemize}
