@@ -46,16 +46,19 @@ Alcuni dei requisiti più importanti individuati sono riportati nella tabella \a
     RF8O     & L'interfaccia permette di creare attività \\ \hline
     RF9O     & L'interfaccia permette di visualizzare un'attività \\ \hline
     RF10O     & L'interfaccia permette di avviare la registrazione di un'attività \\ \hline
+    RF11O     & L'avvio di un attività provoca l'invio di log che registrano la posizione dello smartphone \\ \hline
     RV18O     & L'applicazione deve essere scritta con uno strumento che permetta lo stesso codice per tutte le piattaforme \\ \hline
 \end{longtable}%
 
 %**************************************************************
-\subsection{Pianificazione}
 
+\subsection{Studio di Fattibilità}
+
+\subsubsection{Framework per lo sviluppo mobile}
 Come specificato dal requisito RV18O si era alla ricerca di un framework crossplatform. Di seguito alcune delle tecnologie che abbiamo analizzato e alcuni dei motivi per
 cui non sono stati scelti.
 
-\subsubsection{Cordova e PhoneGap}
+\paragraph{Cordova e PhoneGap}
 
 \begin{figure}[h]
 	\begin{center}
@@ -86,7 +89,7 @@ più aggiornati.\\
 Menzione d'obbligo è da fare ad Adobe PhoneGap, nato come versione non \gls{open source} di Cordova, che fornisce a pagamento servizi molto interessanti, come ad
 esempio la build in cloud dell'applicazione, eliminando i problemi derivati dall'ambiente di sviluppo sul quale si sta lavorando.
 
-\subsubsection{Ionic e Capacitor}
+\paragraph{Ionic e Capacitor}
 
 \begin{figure}[h]
 	\begin{center}
@@ -127,7 +130,7 @@ Da notare anche come il mondo si stia muovendo molto velocemente verso il web. M
 che sono sviluppate per esso, come AWS di Amazon, Azure di Microsoft, Google Cloud e molti altri. Sviluppare in questo senso è
 anche un investimento su un mondo che è aperto a opportunità continue e di conseguenza al futuro.
 
-\subsubsection{Flutter e Xamarin}
+\paragraph{Flutter e Xamarin}
 Nonostante mi ritenessi soddisfatto dell'impressione di Ionic, ho preso in cosiderazione un'ultima alternativa, Flutter. \\
 Flutter è un framework che si occupa della creazione di interfacce grafiche native per iOS, Android e desktop. Sviluppato da Google e
 rilasciato nel 2018, utilizza un linguaggio proprietario Dart, presentato come alternativa a Javascript. L'engine, sviluppata in
@@ -146,33 +149,67 @@ Tuttavia il problema riscontrato in questo tipo di tecnologia è il fatto che si
 fosse utile solo al campo dello sviluppo mobile. Inoltre tutti i lati positivi di un framework web non valgono anche in questo caso. Di
 fatto l'unica cosa che Flutter condivide con Ionic è il concetto di crossplatform. \\
 Cito anche Xamarin, framework sviluppato da Microsoft, precedente a Flutter che utilizza come linguaggio \gls{Csharp}. Le
-caratterisitiche sono molto simili alla proposta di Google e non mi dilungherò nel descriverlo.
+caratterisitiche sono molto simili alla proposta di Google e perciò non mi dilungherò oltre nel descriverlo.
 
 \subsubsection{La scelta}
 
 Dopo aver valutato le varie scelte per i motivi su citati, io e il mio tutor abbiamo optato per l'utilizzo di Ionic e Capacitor. Abbiamo
 pensato infatti che fosse un giusto compromesso tra innovazione e semplicità d'uso, non rinunciando però al bagaglio di funzionalità che
-venivano offerte da esse.
-
-\section{Progettazione}
-
-\subsection{Analisi delle tecnologie da utilizzare}
-
+venivano offerte da esse. \\
 Una volta scelte le componenti da utilizzare non c'è rimasto che studiarle per valutarne una eventuale architettura. Sono andato così a
 realizzare un piccolo progetto con Ionic per capire bene il suo funzionamento. \\
-L'interfaccia di Ionic è una \gls{cli}, che permette tramite un comando di inizializzazione di creare un progetto, scegliendo il framework
-web da utilizzare e un template di progetto dal quale partire. Per comprendere la progettazione front-end del progetto bisogna prima
-soffermarsi sullo studio di Angular.
 
 \subsubsection{Angular}
 
-Ci sono dei concetti fondamentali di Angular che ho utilizzato per l'implementazione dell'applicazione.
+L'interfaccia di Ionic è una \gls{cli}, che permette tramite un comando di inizializzazione di creare un progetto, scegliendo il framework
+web da utilizzare e un template di progetto dal quale partire. Per comprendere la progettazione front-end del progetto bisogna prima
+soffermarsi sullo studio di Angular. \\
+
+C'è da precisare che quando si parla di Angular si riferisce alla versione 2.0+, che è differente dal suo predecessore AngularJS,
+storicamente individuata come versione 1.0. I due framework infatti non sono retrocompatibili, dato che nella nuova versione è stata
+completamente ridisegnata e riscritta. \\
+\noindent Ci sono dei concetti fondamentali di Angular che ho utilizzato per l'implementazione
+dell'applicazione.
 \begin{itemize}
   \item Il primo tra questi è quello di \textbf{module}. Un'applicazione Angular è infatti costituita da \textit{NgModules} che
   costituiscono il blocco fondamentale dal quale partire. Essi sono definiti come il contesto di compilazione nel quale vengono eseguite
   tutte le altre componenti. Esiste un modulo principale che solitamente è chiamato AppModule e costituisce la \textit{root} dell'applicazione web.
   \item Le viste sono definite dai \textbf{components}. Ognuno di essi sarà infatti composto da tutti gli elementi grafici e il codice
-  correlato (HTML5, SCSS), e dai loro comportamenti.
+  correlato (HTML5, SCSS), e dai loro comportamenti gestiti da quello che Angular chiama template. Il template sono una serie di direttive
+  che collegano la logica dell'applicazione alle viste stesse.
   \item  Il lato \gls{backend} dell'applicazione è rappresentato dai \textbf{services}. Sono definiti per contenere la logica, inoltre sono
   \textit{Injectable}, cioè esiste un'istanza univoca di ogni servizio che può essere inserita all'interno dei \textit{components} 
 \end{itemize}
+
+Il punto di forza di Angular rimane comunque la sua modularità. Se debitamente progettate, tutte le parti dell'architettura sono studiate
+per lavorare in maniera indipendente una dall'altra. 
+L'immagine \autoref{fig:angular} descrive graficamente l'iterazione tra i componenti di Angular. 
+
+\begin{figure}[h]
+  \includegraphics[width=1\linewidth]{angular} 
+  \caption{Architettura di Angular}
+  \label{fig:angular}
+\end{figure}
+
+\subsubsection{Geolocalizzazione}
+Come definito nel requisito RF11O l'applicazione deve occuparsi di registrare la posizione dello smartphone. In Ionic, questo è possibile
+attraverso l'uso dei plugin. Essendo infatti coinvolta una risorsa hardware dello smartphone, non può essere gestita da Angular. Ho dovuto
+ricercare all'interno della documentazione di Ionic e di Capacitor un plugin adatto al nostro scopo. La ricerca non è stata difficile, Ionic
+infatti possiede nella sua documentazione una lista di plugin nativi, cioè plugin testati sul framework e compatibili con Capacitor, che
+derivano o non sono altro che plugin della community sviluppati per Cordova adattati. \\
+\noindent All'interno della documentazione si trovano due plugin che si occupano della localizzazione, Geolocation e Background Geolocation.
+Per decidere io e il mio tutor abbiamo constatato che secondo i requisiti dell'applicazione precedente era necessario che l'applicazione
+consumasse meno batteria possibile, ma che prendesse continuamente la posizione. Abbiamo quindi optato per Background Geolocation, che
+permette di localizzare il telefono anche in modalità background, cioè quando l'applicazione non è aperta nella schermata, o il telefono ha
+lo schermo spento. \\
+\noindent L'approccio Android per quanto riguarda i processi in background è molto severo. Tutte le applicazioni che avviano processi in
+background, infatti, devono avere una notifica che avvisa l'utente che qualcosa sta eseguendo senza che se ne accorgano. Lato sviluppatore
+l'applicazione ha bisogno di molti permessi appositi, da inserire in quello che si chiama Manifest, file XML che dichiara tutte le
+caratteristiche più importanti dell'applicazione, tra i quali nome e package. \\
+Altro rischio rilevato da questo plugin è l'ottimizzazione messa in atto dalle distribuzioni dei vari brand di Android stesso. Sul mio
+attuale smartphone, ad esempio, è installato una versione del sistema operativo che si chiama Oxygen OS, questa di default ottimizza tutte
+le applicazioni installate. In questo frangente mi è tornato utile il sito Don't Kill My App, il quale per ogni brand indica quali procedure
+seguire per disattivare queste ottimizzazioni lato utente.
+
+\subsubsection{Salvataggio offline}
+I sistemi mobile utilizzano per l'allocazione di dati SQLite, una versione del noto SQL .... 

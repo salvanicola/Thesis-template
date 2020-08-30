@@ -1,5 +1,19 @@
 {
     "editor.minimap.enabled": false,
     "terminal.integrated.cursorBlinking": true,
-    "rewrap.wrappingColumn": 140
+    "rewrap.wrappingColumn": 140,
+    "actionButtons": {
+        "defaultColor": "white", // Can also use string color names.
+        "loadNpmCommands":false, // Disables automatic generation of actions for npm commands.
+        //"reloadButton":"♻️", // Custom reload button text or icon (default ↻). null value enables automatic reload on configuration change
+        "commands": [
+            {
+                "cwd": "${workspaceFolder}", 	// Terminal initial folder ${workspaceFolder} and os user home as defaults
+                "name": "compile-thesis",
+                "color": "white",
+                "singleInstance": true,
+                "command": "./compile-for-linux", // This is executed in the terminal.
+            }
+        ]
+    }
 }
