@@ -47,6 +47,7 @@ Alcuni dei requisiti più importanti individuati sono riportati nella tabella \a
     RF9O     & L'interfaccia permette di visualizzare un'attività \\ \hline
     RF10O     & L'interfaccia permette di avviare la registrazione di un'attività \\ \hline
     RF11O     & L'avvio di un attività provoca l'invio di log che registrano la posizione dello smartphone \\ \hline
+    RF12O     & L'applicazione invia i log registrati al sistema gestionale UCIS \\ \hline
     RV18O     & L'applicazione deve essere scritta con uno strumento che permetta lo stesso codice per tutte le piattaforme \\ \hline
 \end{longtable}%
 
@@ -212,4 +213,21 @@ le applicazioni installate. In questo frangente mi è tornato utile il sito Don'
 seguire per disattivare queste ottimizzazioni lato utente.
 
 \subsubsection{Salvataggio offline}
-I sistemi mobile utilizzano per l'allocazione di dati SQLite, una versione del noto SQL .... 
+Le applicazioni mobile utilizzano per l'allocazione dati \textbf{SQLite}, una versione ridotta del noto \acrshort{sql}, per la gestione di
+\gls{database} relazionali. SQLite permette la creazione di tabelle, form e report e l'interrogazione di questi, tutto all'interno dello
+stesso file. Per piccole basi di dati è molto più performante di SQL server e quindi perfetto per il salvataggio di dati di un sistema
+mobile. \\
+\noindent Anche per questa funzionalità mi sono dovuto affidare a un plugin nativo di Ionic per la gestione di questi database. Per il
+debugging e la visualizzazione di questi database ho utilizzato un estensione di Google Chrome, chiamata Stetho.\\
+\noindent Nonostante il difficile accesso al database con questo sistema, si è deciso anche che la maggior parte dei dati sensibili, quindi
+informazioni personali e chiavi per l'accesso non dovevano essere salvati in locale. 
+
+\subsubsection{Comunicazione con le API}
+Come specificato dal requisito RF12O i dati raccolti dall'applicazione dovranno essere inviati al gestionale attraverso le sue \gls{api}.
+Angular offre alcune delle sue librerie per comunicare con il server, ma si è preferito utilizzare axios, perché già conosciuto e di facile
+utilizzo. Axios è una libreria di Javascript/Typescript che permette di eseguire chiamate HTTP di tipo POST/GET/PUT. Supporta il sistema di
+Promise di Javascript, quindi la possibilità di fare chiamate asincrone e trasforma tutte le risposte in oggetti JSON, facilmente leggibili
+anche non conoscendo la struttura del server. Permette inoltre di impostare un berear token, cioè l'istanza di axios che possiede
+l'applicazione deve autenticarsi al server una singola volta, alle chiamate successive non sarà necessario l'invio dei codici per il login
+utente.
+
