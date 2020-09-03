@@ -28,9 +28,9 @@ Qui devo scrivere i contenuti di ciò che dirò.
 
     \item[{\hyperref[cap:descrizione-stage]{Il secondo capitolo}}] approfondisce i contenuti del progetto di stage e i motivi della scelta.
 
-    \item[{\hyperref[cap:ilprogetto]{Il terzo capitolo}}] approfondisce i contenuti della proposta di stage.
+    \item[{\hyperref[cap:ilprogetto]{Il terzo capitolo}}] descrive in modo dettagliato ciò che è stato fatto durante lo stage.
 
-    \item[{\hyperref[cap:analisi-requisiti]{Il quarto capitolo}}] approfondisce ...
+    \item[{\hyperref[cap:valutazione-retrospettiva]{Il quarto capitolo}}] contiene le considerazione a posteriori dell'esperienza di stage.
 
 \end{description}
 
@@ -52,47 +52,69 @@ Qui devo scrivere i contenuti di ciò che dirò.
 	\caption {Logo di \acrlong{asd}.}
 \end{figure}
 
-Alternative Studio è una web agency che fornisce soluzioni professionali su misura, costruite secondo le esigenze del cliente. Si occupa principalmente di sviluppo web e marketing. È un'azienda piccola che raccoglie poche risorse umane, ma molte energie che continuano a spingere per crescere. Opera da appena sei anni nel settore del web development, ma ha abbracciato anche altre iniziative, collaborando in progetti più grandi con altre realtà.
-Negli ultimi anni l'azienda si è cimentata nello sviluppo di un gestionale per l'organizzazione \gls{ucis}. Quest ultimo possiede un'\gls{api} volta alla ricezione e all'elaborazione di attività registrate durante addestramento, soccorso o esercitazioni.
+Alternative Studio è una web agency che fornisce soluzioni professionali su misura, costruite secondo le esigenze del cliente. Si occupa
+principalmente di sviluppo web e marketing. È un'azienda piccola che raccoglie poche risorse umane, ma molte energie che continuano a
+spingere per crescere. Opera da appena sei anni nel settore del web development, ma ha abbracciato anche altre iniziative, collaborando in
+progetti più grandi con altre realtà. Negli ultimi anni l'azienda si è cimentata nello sviluppo di un gestionale per l'organizzazione
+\gls{ucis}. Quest ultimo possiede un'\gls{api} volta alla ricezione e all'elaborazione di attività registrate durante addestramento,
+soccorso o esercitazioni.
 
 %**************************************************************
 \section{L'idea}
 
-L'attuale applicazione per smartphone che si occupa di registrare le attività succitate è stata sviluppata molti anni fa ed essendo molto instabile è nata l'esigenza di un refactoring di quest'ultima. Volendo utilizzare tecnologie moderne per lo sviluppo mobile e crossplatform è nata l'esigenza di un'indagine preventiva sulle tecnologie da utilizzare. \\
+L'attuale applicazione per smartphone che si occupa di registrare le attività succitate è stata sviluppata molti anni fa ed essendo molto
+instabile è nata l'esigenza di un refactoring di quest'ultima. Volendo utilizzare tecnologie moderne per lo sviluppo mobile e crossplatform
+è nata l'esigenza di un'indagine preventiva sulle tecnologie da utilizzare. \\
 Alternative Studio ha pensato, quindi, di aprire una posizione perfetta per un laureando, che cerchi un progetto formante, che lo metta continuamente alla prova.
 
 %**************************************************************
 
 \section{Tecnologie utilizzate}
 
-Lo stage si è focalizzato sull'utilizzo di tecnologie mobile per lo sviluppo di applicazioni per smartphone. Queste sono spesso nuove e in continua evoluzione, è per questo che Alternative Studio ha avviato uno studio approfondito per scegliere quelle adatte allo sviluppo della propria applicazione.
+Lo stage si è focalizzato sull'utilizzo di tecnologie mobile per lo sviluppo di applicazioni per smartphone. Queste sono spesso nuove e in
+continua evoluzione, è per questo che Alternative Studio ha avviato uno studio approfondito per scegliere quelle adatte allo sviluppo della
+propria applicazione.
 
 \subsection{Ionic}
 
-\gls{Ionic} è un \gls{framework} open source che fornisce strumenti agli sviluppatori, come librerie grafiche e plugins nativi per dialogare con \gls{Android} e \gls{iOS}. Esso permette lo sviluppo mobile utilizzando tecnologie standard web come Angular, React e Vue, evitando lo sviluppo in linguaggio nativo dei singoli sistemi operativi.
-Questo è reso possibili da wrapper esistenti su ogni piattaforma volti a eseguire l'applicazione.
+Ionic è un \gls{framework} open source che fornisce strumenti agli sviluppatori, come librerie grafiche e plugins nativi per dialogare
+con \gls{Android} e \gls{iOS}. Esso permette lo sviluppo mobile utilizzando tecnologie standard web come Angular, React e Vue, evitando lo
+sviluppo in linguaggio nativo dei singoli sistemi operativi. Questo è reso possibili da wrapper esistenti su ogni piattaforma volti a
+eseguire l'applicazione.
 
 \subsection{Angular}
 
 Come framework web per lo sviluppo \gls{frontend} si è utilizzato Angular, evoluzione del noto AngularJS, sviluppato in prevalenza da Google, ma con distribuzione \gls{open source}. Le applicazioni Angular sono eseguite direttamente lato client dal web browser e quindi non vengono reinviate indietro al web server. Inoltre sono nativamente responsive, cioè i toolkit utilizzate si adattano al dispositivo sul quale sono eseguite. \\
-Nonostante l'esperenzia di Alternative Studio sull'analogo Vue, si è deciso di adottare Angular dato che Ionic-Vue era ancora in fase di beta e quindi potenzialmente instabile e soggetto a cambiamenti.
+Nonostante l'esperenzia di Alternative Studio sull'analogo Vue, si è deciso di adottare Angular dato che Ionic-Vue era ancora in fase di
+beta e quindi potenzialmente instabile e soggetto a cambiamenti.
 
 \subsubsection{TypeScript}
 
 TypeScript è un linguaggio implementato da Microsoft nel 2012, derivato da JavaScript, al quale aggiunge il concetto di tipizzazione e di orientamento agli oggetti. Nonostante JS sia un linguaggio \gls{tipizzato}, esso non fa nessun tipo di controllo statico sui tipi effettuando sempre una conversione dinamica. Questo produce spesso degli errori difficili da trovare e correggere, per questo TypeScript introduce la compilazione che non fa altro che tradurre il codice in JavaScript, eseguendo prima un controllo dei tipi.\\
-Grazie a queste caratteristiche TypeScript non è stato utilizzato solo per il \gls{frontend}, ma anche per parte della logica dell'applicazione. Per questo e per il fatto che è il linguaggio adottato nativamente da Angular sarà quello più utilizzato durante lo sviluppo.
+Grazie a queste caratteristiche TypeScript non è stato utilizzato solo per il \gls{frontend}, ma anche per parte della logica
+dell'applicazione. Per questo e per il fatto che è il linguaggio adottato nativamente da Angular sarà quello più utilizzato durante lo
+sviluppo.
 
 \subsection{Android e Java}
 
-\gls{Android} è il sistema operativo mobile più diffuso nel pianeta e di proprietà di \gls{Google}. È stato scelto come riferimento durante lo sviluppo, nonostante \gls{Ionic} offra la possibilità di sviluppare in crossplatform con lo stesso codice. Al contrario alcune funzionalità che si interfacciano con il sistema operativo, come ad esempio la componente GPS, devono essere sviluppate in linguaggio nativo, che nel caso di \gls{Android} è \gls{java}.
+\gls{Android} è il sistema operativo mobile più diffuso nel pianeta e di proprietà di \gls{Google}. È stato scelto come riferimento durante
+lo sviluppo, nonostante Ionic offra la possibilità di sviluppare in crossplatform con lo stesso codice. Al contrario alcune
+funzionalità che si interfacciano con il sistema operativo, come ad esempio la componente GPS, devono essere sviluppate in linguaggio
+nativo, che nel caso di \gls{Android} è \gls{java}.
 
 %**************************************************************
 
 \section{Metodo di Lavoro}
-Dato le contenute risorse umane a disposizione Alternative Studio adotta un ciclo di sviluppo software \gls{Incrementale} con qualche introduzione di processi da quello \gls{Agile}, in particolared dal metodo \gls{Scrum}. Durante lo stage lo studente è stato incaricato, anche di introdurre qualche concetto di questi cicli di vita all'interno del contesto aziendale, come quello di \gls{Sprint} e di \gls{Daily Scrum}.
+Dato le contenute risorse umane a disposizione Alternative Studio adotta un ciclo di sviluppo software \gls{Incrementale} con qualche
+introduzione di processi da quello \gls{Agile}, in particolared dal metodo \gls{Scrum}. Durante lo stage lo studente è stato incaricato,
+anche di introdurre qualche concetto di questi cicli di vita all'interno del contesto aziendale, come quello di \gls{Sprint} e di \gls{Daily Stand-up}.
 
 \subsection{Processi di sviluppo}
-La mia figura è subentrata durante la fase di Analisi dei requisiti. Per questo i primi compiti affidatomi sono stati quelli di studio delle tecnologie adatte da utilizzare durante il progetto. Durante questa fase si sono svolte alcune riunioni con il tutor, tramite videochiamata, e redatto alcuni documenti di report su quest'ultime. Inoltre il lavoro individuale (come compilare un "Hello World" con Ionic) si è svolto tramite tasks. Le riunioni con il tutor sono proseguite anche durante la fase di progettazione architetturale, durante la quale abbiamo chiarito la visione generale dell'applicazione.
+La mia figura è subentrata durante la fase di Analisi dei requisiti. Per questo i primi compiti affidatomi sono stati quelli di studio delle
+tecnologie adatte da utilizzare durante il progetto. Durante questa fase si sono svolte alcune riunioni con il tutor, tramite videochiamata,
+e redatto alcuni documenti di report su quest'ultime. Inoltre il lavoro individuale (come compilare un "Hello World" con Ionic) si è svolto
+tramite tasks. Le riunioni con il tutor sono proseguite anche durante la fase di progettazione architetturale, durante la quale abbiamo
+chiarito la visione generale dell'applicazione.
 
 \subsection{Strumenti di supporto allo sviluppo}
 Ci sono alcuni software da citare utilizzati nella gestione del progetto.
@@ -107,9 +129,12 @@ Gitlab è un software open source per la gestione di repository \gls{Git} e supp
 	\caption {Schermata di nuova issue del software Gitlab.}
 \end{figure}
 
-\noindent Per la prima parte è stato importante il suo strumento di \gls{Issue Tracking System} con il quale si sono gestite le tasks e le loro scadenze.
-Infatti, in questo caso le issues sono state utilizzate come metodo per tracciare i compiti da svolgere, piuttosto che per segnalare problemi all'interno del software, come bug e affini. \\
-\noindent Ogni task possiede un titolo significativo, una descrizione approfondita aggiornabile in caso di cambiamenti durante l'esecuzione e una scadenza. Inoltre è possibile assegnarla a più membri del team, aggiungere informazioni o dialogare con il tutor attraverso la sezione commenti e specificare la milestone alla quale è collegata.
+\noindent Per la prima parte è stato importante il suo strumento di \gls{Issue Tracking System} con il quale si sono gestite le tasks e le
+loro scadenze. Infatti, in questo caso le issues sono state utilizzate come metodo per tracciare i compiti da svolgere, piuttosto che per
+segnalare problemi all'interno del software, come bug e affini. \\
+\noindent Ogni task possiede un titolo significativo, una descrizione approfondita aggiornabile in caso di cambiamenti durante l'esecuzione
+e una scadenza. Inoltre è possibile assegnarla a più membri del team, aggiungere informazioni o dialogare con il tutor attraverso la sezione
+commenti e specificare la milestone alla quale è collegata.
 
 \subsubsection{Comunicazione}
 Causa il telelavoro, durante il progetto sono stati fondamentali gli strumenti di comunicazione:
@@ -120,7 +145,9 @@ Causa il telelavoro, durante il progetto sono stati fondamentali gli strumenti d
 \end{itemize}
 
 \subsubsection{Codifica}
-In dotazione ad Alternative Studio ho utilizzato WebStorm, potente IDE parte della suite di JetBrains. Una delle sue caratteristiche principali sono la sua modularità, grazie allo store di plugins disponibili che aggiungono funzionalità, come il conteggio delle ore di programmazione e gestione del repository \gls{Git} locale. \\
+In dotazione ad Alternative Studio ho utilizzato WebStorm, potente IDE parte della suite di JetBrains. Una delle sue caratteristiche
+principali sono la sua modularità, grazie allo store di plugins disponibili che aggiungono funzionalità, come il conteggio delle ore di
+programmazione e gestione del repository \gls{Git} locale. \\
 Inoltre si integra molto bene con le tecnologie web, come Angular, mettendo a disposizione il suo ambiente di building e di testing direttamente all'interno dell'IDE.
 
 \begin{figure}[htbp]
@@ -135,6 +162,13 @@ Inoltre si integra molto bene con le tecnologie web, come Angular, mettendo a di
 \end{figure}
 
 \subsubsection{Android Studio}
-Android Studio fa parte sempre del pacchetto IDEA di JetBrains ed è una versione molto ridotta di Intellij IDEA. A differenza del suo fratello maggiore è open source e ottimizzato per lo sviluppo Android. I linguaggi nativi utilizzabili in questo IDE sono principalmente \gls{Go} e \gls{java}. Utilizza gradle come strumento automatico per la build dei progetti ed è estensibile come le altre applicazioni IDEA tramite plugins.
+Android Studio fa parte sempre del pacchetto IDEA di JetBrains ed è una versione molto ridotta di Intellij IDEA. A differenza del suo
+fratello maggiore è open source e ottimizzato per lo sviluppo Android. I linguaggi nativi utilizzabili in questo IDE sono principalmente
+\gls{Go} e \gls{java}. Utilizza gradle come strumento automatico per la build dei progetti ed è estensibile come le altre applicazioni IDEA
+tramite plugins.
 
+\subsubsection{Postman}
+Programma a supporto della codifica, il quale mi ha aiutato nell'interfacciarmi alle API. Postman permette di fare chiamate \gls{http} ad
+un'API e di visualizzarne il risultato. È un software molto utile nel quale puoi, ad esempio, testare le stringhe che utilizzerai nel tuo
+codice, o per analizzare il risultato per capire come utilizzarlo.
 %**************************************************************

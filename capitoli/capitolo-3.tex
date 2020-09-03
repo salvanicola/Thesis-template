@@ -225,9 +225,94 @@ informazioni personali e chiavi per l'accesso non dovevano essere salvati in loc
 \subsubsection{Comunicazione con le API}
 Come specificato dal requisito RF12O i dati raccolti dall'applicazione dovranno essere inviati al gestionale attraverso le sue \gls{api}.
 Angular offre alcune delle sue librerie per comunicare con il server, ma si è preferito utilizzare axios, perché già conosciuto e di facile
-utilizzo. Axios è una libreria di Javascript/Typescript che permette di eseguire chiamate HTTP di tipo POST/GET/PUT. Supporta il sistema di
+utilizzo. Axios è una libreria di Javascript/Typescript che permette di eseguire chiamate \gls{http} di tipo POST/GET/PUT. Supporta il sistema di
 Promise di Javascript, quindi la possibilità di fare chiamate asincrone e trasforma tutte le risposte in oggetti JSON, facilmente leggibili
 anche non conoscendo la struttura del server. Permette inoltre di impostare un berear token, cioè l'istanza di axios che possiede
 l'applicazione deve autenticarsi al server una singola volta, alle chiamate successive non sarà necessario l'invio dei codici per il login
 utente.
 
+\section{Progettazione}
+\subsection{Login}
+
+\begin{wrapfigure}{l}{0.45\textwidth}
+  \includegraphics[width=0.9\linewidth]{login} 
+  \caption{Semplice diagramma del login}
+  \label{fig:login}
+\end{wrapfigure}
+
+La prima parte dell'applicazione della quale ci siamo occupati è quella di login. Per fare questo abbiamo optato per una semplice \acrlong{mvc}, con
+una classe \textit{User} come modello, che rappresenta le informazioni di un utente, una \textit{View} composta da un semplice form con un
+template Angular e un \textit{controller} che si occupa di contattare il server e mantenere l'utente autenticato gestito da un
+\textit{service}. \\ \\
+
+\subsection{Creazione e visualizzazione delle attività}
+Secondo il requisito RF8O l'applicazione deve permettere all'utente la creazione di un'attività. Il concetto da attività è stato ripreso da
+quello già esistente nelle API. Ognuna di esse è formata da:
+\begin{itemize}
+  \item una categoria individuata da: 
+  \begin{itemize}
+    \item una \textit{macrocategoria} (es. esercitazioni, addestramento) individuata da un id;
+    \item una \textit{sottocategoria} (es. addestramento macerie, ricerca su superficie) individuata da un proprio id e da quello della macrocategoria.
+  \end{itemize}
+  \item un nome scelto dall'utente;
+  \item il cane con cui si svolge l'attività.
+\end{itemize}
+Inoltre l'applicazione tiene traccia dei seguenti dati:
+\begin{itemize}
+  \item data di creazione;
+  \item data di inizio;
+  \item data di fine (se ancora in corso impostata a valore di default);
+  \item i nomi delle categorie assiociati agli id;
+  \item colore associato alla macrocategoria.
+\end{itemize}
+
+Anche in questo caso si è seguito il modello di Angular, molto simile al \acrlong{mvc}. Il \textit{modello} è rappresentato da
+una classe attività che possiede come attributi tutte le caratterisitiche precedenti. La \textit{vista} è un \textit{components} Angular compreso di un form e
+il \textit{controller} da un servizio chiamato \textit{ActivityService}. Quest'ultimo non gestisce solo la creazione di nuove attività, ma è
+un \gls{facade} per tutti components che gestiscono le attività. \\
+Un'altra vista importante è quella che permette la visualizzazione della lista delle attività. Qui l'architettura è più complicata e
+necessità la spiegazione di cosa sta dietro al \gls{facade}. Infatti secondo il requisito RQ3O l'applicazione deve funzionare anche se
+offline, è per questo che la lista delle attività deve essere disponibile anche in assenza di connessione al server del gestionale.
+All'apertura dell'applicazione \textit{ActivityService} inizializza un altro servizio con un comportamento simile al \gls{proxy},
+\textit{ActivityStore}, che si occupa di leggere nella tabella del database SQLite se sono salvate delle attività e caricarle nei dati
+dell'applicazione. Nel frattempo \textit{ActivityStore} inizializza \textit{ActivityFetcher} il quale si occupa invece dell'interrogazione
+dell'API, che restituirà una lista di attività se la connessione va a buon fine, oppure un errore.  Nel caso ci sia risposta
+\textit{ActivityStore} confronta il risultato con ciò che ha letto dal database e sistema le differenze. Nel caso contrario
+\textit{ActivityFetcher} rimane in ascolto della rete dello smartphone (tramite plugin di Ionic) e una volta trovata, rilancia
+l'interrogazione al server. 
+
+\subsection{Registrazione Attività}
+La parte di registrazione delle attività risulta essere molto più complicata per alcuni motivi:
+\begin{itemize}
+  \item continuo invio di dati al gestionale per requisito RF11O;
+  \item registrazione anche se l'app è in background;
+  \item registrazione anche se lo smartphone è offline.
+\end{itemize}
+Questi punti hanno richiesto molto per essere modellati e più volte l'architettura di questa componente è stata modificata. \\
+\noindent Ad alto livello quello che si tenta di fare è mettere in comunicazione il plugin di Ionic che riceve i dati sulla posizione e inviarli al
+gestionale. Qui entrano in gioco due servizi di Angular: uno si occupa di ricevere, registrare e salvare i log nel database locale
+dell'applicazione; un altro che si occuperà di verificare la rete periodicamente, e, nel caso fosse presente, procederà a caricare i log che
+trova all'interno della memoria. La caratteristica che devono avere i due servizi, che chiameremo \textit{ActivityRecorder} e \textit{uploader}, è di dover
+essere eseguibili anche in background. Inoltre l'uploader dovrà occuparsi di sincronizzare i propri processi, dato che potrà inviare una
+sola richiesta alla volta. 
+
+\section{Verifica}
+Il processo di verifica e validazione è stato avviato dopo la codifica di una \gls{Product Baseline} funzionante. 
+\subsection{Analisi statica}
+Dato che la maggior parte dell'applicazione è stata codificata in Typescript gli strumenti utilizzati per la verifica sono quelli standard
+del linguaggio, integrati anche nell'\gls{ide}. Per l'analisi statica si è utilizzato TSLint, reperibile al link: \\
+\begin{center}
+  \url{https://palantir.github.io/tslint/}.
+\end{center}
+\subsection{Analisi Dinamica}
+Per i test dinamici sull'interfaccia si è usato un framework apposito di Angular, Protractor anch'esso reperibile al link: \\
+\begin{center}
+  \url{https://www.protractortest.org/#/}.
+\end{center}
+I test sono definiti come \textit{behaviour driven}, vengono definiti degli input sull'interfaccia e dei comportamenti aspettati.
+L'applicazione viene poi lanciata sul browser per verificare che l'output dell'applicazione sia corretto.
+
+\subsection{Analisi umana}
+Alcune delle componenti dell'applicazione, purtroppo, non sono stati testati in modo automatico, perchè non esistente alcuno strumento per
+farlo. È il caso del test per il plugin di geolocalizzazione, non era possibile testarlo con nessun tool e questo si è tradotto in prove
+empiriche sul campo, durante gli spostamenti per andare in ufficio, ad esempio.

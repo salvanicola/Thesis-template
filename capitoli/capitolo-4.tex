@@ -3,82 +3,106 @@
 % !TEX root = ../tesi.tex
 
 %**************************************************************
-\chapter{Analisi dei requisiti}
-\label{cap:analisi-requisiti}
+\chapter{Valutazione Retrospettiva}
+\label{cap:valutazione-retrospettiva}
 %**************************************************************
 
-\intro{Breve introduzione al capitolo}
+% \intro{Breve introduzione al capitolo}
 
-\section{Casi d'uso}
+\section{Obiettivi raggiunti}
+\subsection{Obiettivi dello stage}
+In questa sezione analizzerò quali degli obiettivi descritti nel \hyperref[sec:obiettivi]{capitolo 2} sono stati raggiunti e quali no, dando
+una giustificazione nel caso negativo.
 
-Per lo studio dei casi di utilizzo del prodotto sono stati creati dei diagrammi.
-I diagrammi dei casi d'uso (in inglese \emph{Use Case Diagram}) sono diagrammi di tipo \gls{uml} dedicati alla descrizione delle funzioni o servizi offerti da un sistema, così come sono percepiti e utilizzati dagli attori che interagiscono col sistema stesso.
-Essendo il progetto finalizzato alla creazione di un tool per l'automazione di un processo, le interazioni da parte dell'utilizzatore devono essere ovviamente ridotte allo stretto necessario. Per questo motivo i diagrammi d'uso risultano semplici e in numero ridotto.
+\renewcommand{\arraystretch}{2}
+\begin{longtable}{|p{10cm}|p{4cm}|}%
+  \caption{Tabella degli obiettivi} 
+  \label{tab:obiettivi} \\
+    \hline
+    \textbf{Obiettivo} & \textbf{Risultato} \\
+    \hline
+    \endhead
+    \multicolumn{2}{|l|}{\textbf{Obbligatori}} \\ \hline
+    Progettazione e realizzazione di applicazione mobile                      & Soddisfatto \\ \hline
+    Implementazione servizio di geolocalizzazione preciso nell’applicazione   & Soddisfatto \\ \hline
+    Versione beta dell'applicazione da pubblicare sullo store                 & Soddisfatto \\ \hline
+    \multicolumn{2}{|l|}{\textbf{Desiderabili}} \\ \hline
+    Applicazione cross-platform, combatibile anche su dispositivi datati      & Soddisfatto \\ \hline
+    Messa in produzione dell’applicazione                                     & Soddisfatto \\ \hline
+    \multicolumn{2}{|l|}{\textbf{Facoltativi}} \\ \hline
+    Implementazione delle notifiche push                                      & Non Soddisfatto \\ \hline
+    Integrazione di una chat                                                  & Non Soddisfatto \\ \hline
+    Applicazione funzionante anche su dispositivi senza servizi Google        & Non Soddisfatto \\ \hline
+\end{longtable}%
 
-% \begin{figure}[!h]
-%     \centering
-%     \includegraphics[width=0.9\columnwidth]{usecase/scenario-principale}
-%     \caption{Use Case - UC0: Scenario principale}
-% \end{figure}
+\noindent In generale sono stati rispettati tutti gli obiettivi, tranne quelli ritenuti facoltativi. Questi non erano inseriti nel piano di lavoro, se
+non nell'ultima settimana in caso l'applicazione non fosse pronta. In ogni caso gli obiettivi facoltati inseriti fanno parte dei requisiti
+dell'applicazionme e per questo non sono stati esclusi completamente. Durante lo stage ho infatti studiato i metodi per le notifiche push su
+\gls{Android} e su come sviluppare applicazioni in dispositivi senza servizi Google, come ad esempio alcuni modelli recenti \textit{Huawei}.
+\\
+\noindent Grazie al metodo di lavoro utilizzato, ho rispettato anche il piano di lavoro concordato con il tutor aziendale. Le brevi riunioni quasi
+giornaliere durante le quali si definivano le piccole task, sono state molto utili allo scopo, velocizzando lo sviluppo e razionalizzando il
+tempo a disposizione per ognuna di esse. 
 
-\begin{usecase}{0}{Scenario principale}
-\usecaseactors{Sviluppatore applicativi}
-\usecasepre{Lo sviluppatore è entrato nel plug-in di simulazione all'interno dell'IDE}
-\usecasedesc{La finestra di simulazione mette a disposizione i comandi per configurare, registrare o eseguire un test}
-\usecasepost{Il sistema è pronto per permettere una nuova interazione}
-\label{uc:scenario-principale}
-\end{usecase}
+\subsection{Obiettivi personali}
+Questo stage aveva anche alcuni obiettivi personali descritti nella sezione \hyperref[sec:obiettivi-pers]{2.1.2}:
+\begin{itemize}
+    \item Alternative Studio mi ha dato la possibilità di collaborare a stretto contatto con professionisti nel settore che mi hanno formato
+    e hanno plasmato il mio metodo di lavoro. Sono stato contento di aver lavorato in un contesto giovane e in espansione, dove un giovane
+    stagista può sentirsi a proprio agio crescendo assieme alla realtà in cui è immerso. Nonostante questo mi sento di aver imparato a
+    distinguere ciò che è \textit{professionale} da ciò che non lo è.
+    \item Nella sezione successiva descriverò in dettaglio quali tecnologie ho imparato. In generale penso che la lunga analisi avviata
+    nello studio di fattibilità mi abbia aiutato e fatto capire cosa mi propone il mondo informatico. Sono riuscito a sviluppare un metodo
+    per esaminare e sviscerare le caratteristiche di ognuna delle tecnologie, che consiste nelle leggere la documentazione ufficiale,
+    costruire una mia opinione e solo in seguito leggere opinioni di altri, cercando ovviamente le più autorevoli. Ho capito anche che un
+    buon software non è composto solo da una buona codifica, una buona interfaccia o un buon supporto, ma da una grande community che
+    fornisce un troubleshooting adeguato a tutti i problemi che puoi incorrere.
+    \item Sono abbastanza soddisfatto di come sia riuscito a gestire il tempo. Ero molto preoccupato che la gestione elastica dettata dal
+    telelavoro mi avrebbe penalizzato, date le distrazioni "casalinghe", o al contrario non avere orari di ufficio mi avrebbe portato a fare
+    più ore di quelle stabilite. Non nascondo che è ovviamente capitato, quando a uno sviluppatore si intestardisce nel trovare una
+    soluzione a un problema può rimane anche ore su di esso, ma spesso il tutor è intervenuto a regolarizzare il ritmo lavorativo. 
+    \item Grazie a Stage-IT sono riuscito a raccogliere molti contatti. Mi piacerebbe continuare a collaborare con \acrlong{asd} nei suo
+    progetti futuri.
+\end{itemize}
 
-\section{Tracciamento dei requisiti}
+\section{Conoscenze e competenze acquisite}
+\subsection{Collaborazione con i colleghi}
+Il lavoro di squadra era uno dei punti che più mi preoccupava. Prima dello stage ero convinto che iniziare un progetto in più persone senza
+dividere bene i ruoli e le mansioni in modo definito fosse impossibile. Dopo questa esperienza mi sento di dire che lavorare in un team
+cercando il confronto continuo e avendo sempre qualcuno a supporto è il modo migliore per raggiungere gli obiettivi. \\ 
+\noindent Ho capito che il fallimento è contemplato in questo settore e che se una cosa non riesce puoi sempre rivolgerti a qualcun altro
+che ti darà una visione diversa del problema. Questo approccio mi è tornato utile molto spesso durante il progetto quando mi trovavo fermo
+in punto, senza trovare vie d'uscita, rivolgermi al tutor è sempre stata la soluzione migliore.
+\noindent Un'altro aspetto al quale tengo molto e la gestione delle relazioni tra colleghi che deve andare oltre al semplice rapporto
+lavorativo, per creare un ambiente rilassato e confortevole, dove è più semplice lavorare. Ho imparato quindi a essere professionale, ma al
+contempo non troppo rigido.
 
-Da un'attenta analisi dei requisiti e degli use case effettuata sul progetto è stata stilata la tabella che traccia i requisiti in rapporto agli use case.\\
-Sono stati individuati diversi tipi di requisiti e si è quindi fatto utilizzo di un codice identificativo per distinguerli.\\
-Il codice dei requisiti è così strutturato R(F/Q/V)(N/D/O) dove:
-\begin{enumerate}
-	\item[R =] requisito
-    \item[F =] funzionale
-    \item[Q =] qualitativo
-    \item[V =] di vincolo
-    \item[N =] obbligatorio (necessario)
-    \item[D =] desiderabile
-    \item[Z =] opzionale
-\end{enumerate}
-Nelle tabelle \ref{tab:requisiti-funzionali}, \ref{tab:requisiti-qualitativi} e \ref{tab:requisiti-vincolo} sono riassunti i requisiti e il loro tracciamento con gli use case delineati in fase di analisi.
+\subsection{Analisi e Studio di Fattibilità}
+Prima di intraprendere il percorso di stage la consideravo una fase noiosa e poco utile di un progetto. Ho completamente cambiato idea
+affrontandola con il tutor. In precedenza, probabilmente avevo un approccio meno interattivo e un po' retrogrado, ma con il tutor sono
+riuscito a cambiarlo radicalmente. \\ 
+\noindent Dato che i requisiti erano già stati quasi tutti fissati, lo studio delle tecnologie da utilizzare è quello che mi ha coinvolto di
+più. Capire le caratteristiche di ognuna di esse e apprezzarne le differenze mi ha appassionato portandomi ad apprezzare questo processo
+che prima ritenevo superfluo. È da sottolineare che questo progetto partendo da zero, aveva bisogno di un analisi completa e questo mi ha
+dato molta libertà nella ricerca. 
 
-\newpage
+\subsection{Tecnologie apprese}
+Oltre ad affinare l'utilizzo di Git e degli strumenti di controllo di versione, ho appreso meglio il concetto di \gls{ci}
+attraverso gli strumenti di GitLab. Ho conosciuto il mondo dello sviluppo mobile e di tutte le tecnologie che ci stanno attorno, ordinando
+le conoscenze acquisite in precedenza. È stato affascinante passare da utente di applicazioni per smartphone a programmatore, iniziando a
+notare tutti gli stessi errori e le imperfezioni che altri sviluppatori hanno commesso come me su alcune cose. \\
+\noindent Ho imparato a programmare con Ionic e Angular, che sicuramente mi saranno utili in futuro nel mondo del web development. Ora sono
+in grado di gestire in modo efficiente la programmazione concorrente attraverso le librerie di \gls{nodejs} con le \textit{Promise}. So
+interfacciarmi con delle API su un server web. Ho imparato, inoltre, a avviare un progetto in Android tramite il framework nativo e
+modificare le sue parti in \gls{xml} e \gls{java}.
 
-\begin{table}%
-\caption{Tabella del tracciamento dei requisti funzionali}
-\label{tab:requisiti-funzionali}
-\begin{tabularx}{\textwidth}{lXl}
-\hline\hline
-\textbf{Requisito} & \textbf{Descrizione} & \textbf{Use Case}\\
-\hline
-RFN-1     & L'interfaccia permette di configurare il tipo di sonde del test & UC1 \\
-\hline
-\end{tabularx}
-\end{table}%
-
-\begin{table}%
-\caption{Tabella del tracciamento dei requisiti qualitativi}
-\label{tab:requisiti-qualitativi}
-\begin{tabularx}{\textwidth}{lXl}
-\hline\hline
-\textbf{Requisito} & \textbf{Descrizione} & \textbf{Use Case}\\
-\hline
-RQD-1    & Le prestazioni del simulatore hardware deve garantire la giusta esecuzione dei test e non la generazione di falsi negativi & - \\
-\hline
-\end{tabularx}
-\end{table}%
-
-\begin{table}%
-\caption{Tabella del tracciamento dei requisiti di vincolo}
-\label{tab:requisiti-vincolo}
-\begin{tabularx}{\textwidth}{lXl}
-\hline\hline
-\textbf{Requisito} & \textbf{Descrizione} & \textbf{Use Case}\\
-\hline
-RVO-1    & La libreria per l'esecuzione dei test automatici deve essere riutilizzabile & - \\
-\hline
-\end{tabularx}
-\end{table}%
+\section{Valutazioni personali}
+Ritengo di aver avuto parecchie aspettative sullo stage finale, considerandolo la conclusione di un percorso che mi avrebbe lanciato poi nel
+mondo del lavoro e testando tutte le mie conoscenze apprese durante gli studi. Ho scoperto però che non è stato del tutto così. Avrei dovuto
+affrontarlo con aspettative più basse e un altro tipo di mentalità. Non è stata un'esperienza negativa, al contrario ho imparato molto e
+credo sia quella più utile proposta dal corso di laurea, ma da questa ho scoperto che mi mancano ancora moltissime competenze e conoscenze
+per essere del tutto pronto al mondo del lavoro. \\
+\noindent Nel complesso mi sento soddisfatto e credo di aver fatto un ottimo lavoro, mettendo tutto me stesso nel progetto e impegnandomi
+nella sua realizzazione. Grazie al contesto aziendale nel quale mi sono trovato ho avuto tutti gli strumenti per crescere e spero di
+trovarne di simili nel prossimo futuro. So che dovrò spendere molto più delle 300 ore messe a disposizione dallo stage per sentirmi
+completamente realizzato e pronto per diventare un vero e proprio informatico.

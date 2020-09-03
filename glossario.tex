@@ -20,9 +20,20 @@
 \newacronym [description={\glslink{clig}{Command Line Interface}}]
 {cli}{CLI}{Command Line Interface}
 
+\newacronym{mvc}{MVC}{Model View Controller}
+
 \newacronym{asd}{ASD}{Alternative Studio}
 
 \newacronym{sql}{SQL}{Structured Query Language}
+
+\newacronym [description={\glslink{ideg}{Integrated Development Environment}}]
+{ide}{IDE}{Integrated Development Environment}
+
+\newacronym [description={\glslink{cig}{Continous Integration}}]
+{ci}{CI}{Continous Intengration}
+
+\newacronym [description={\glslink{httpg}{HyperText Transfer Protocol}}]
+{http}{HTTP}{HyperText Transfer Protocol}
 %**************************************************************
 % Glossario
 %**************************************************************
@@ -30,173 +41,219 @@
 
 \newglossaryentry{apig}
 {
-    name=\glslink{api}{API},
-    description={in informatica con il termine \emph{Application Programming Interface API} (ing. interfaccia di programmazione di un'applicazione) si indica ogni insieme di procedure disponibili al programmatore, di solito raggruppate a formare un set di strumenti specifici per l'espletamento di un determinato compito all'interno di un certo programma. La finalità è ottenere un'astrazione, di solito tra l'hardware e il programmatore o tra software a basso e quello ad alto livello semplificando così il lavoro di programmazione}
+  name=\glslink{api}{API}, 
+  description={in informatica con il termine \emph{Application Programming Interface API} (ing. interfaccia di
+    programmazione di un'applicazione) si indica ogni insieme di procedure disponibili al programmatore, di solito raggruppate a formare un
+    set di strumenti specifici per l'espletamento di un determinato compito all'interno di un certo programma. La finalità è ottenere
+    un'astrazione, di solito tra l'hardware e il programmatore o tra software a basso e quello ad alto livello semplificando così il lavoro
+    di programmazione}
 }
 
 \newglossaryentry{umlg}
 {
-    name=\glslink{uml}{UML},
-    description={in ingegneria del software \emph{UML, Unified Modeling Language} (ing. linguaggio di modellazione unificato) è un linguaggio di modellazione e specifica basato sul paradigma object-oriented. L'\emph{UML} svolge un'importantissima funzione di lingua franca nella comunità della progettazione e programmazione a oggetti. Gran parte della letteratura di settore usa tale linguaggio per descrivere soluzioni analitiche e progettuali in modo sintetico e comprensibile a un vasto pubblico}
+  name=\glslink{uml}{UML}, 
+  description={in ingegneria del software \emph{UML, Unified Modeling Language} (ing. linguaggio di modellazione
+    unificato) è un linguaggio di modellazione e specifica basato sul paradigma object-oriented. L'\emph{UML} svolge un'importantissima
+    funzione di lingua franca nella comunità della progettazione e programmazione a oggetti. Gran parte della letteratura di settore usa
+    tale linguaggio per descrivere soluzioni analitiche e progettuali in modo sintetico e comprensibile a un vasto pubblico}
 }
 
 \newglossaryentry{ucisg}
 {
-    name=\gls{ucis}{UCIS},
-    sort=ucis,
-    text=Unità Cinofile Italiane da Soccorso,
-    description={É un'Associazione Nazionale di Volontariato, inserita nell'Albo istituito presso il Dipartimento di Protezione Civile. Raggruppa, tutela e coordina i Soccorritori Cinofili presenti sul Territorio Nazionale}
+  name=\glslink{ucis}{UCIS}, 
+  description={É un'Associazione Nazionale di Volontariato,
+    inserita nell'Albo istituito presso il Dipartimento di Protezione Civile. Raggruppa, tutela e coordina i Soccorritori Cinofili presenti
+    sul Territorio Nazionale}
 }
 
 \newglossaryentry{java}
 {
-  name=Java,
-  description={ fsdf s sadf }
+  name=Java, 
+  description={Java è un linguaggio di programmazione ad alto livello, orientato agli oggetti. Per essere il più indipendente
+    possibile dalla piattaforma hardware di esecuzione si appoggia alla JVM (Java Virtual Machine) che interpreta il bytecode, cioè un file di
+    output derivante dalla compilazione. Per questo viene considerato come un linguaggio semi-interpretato.
+  }
 }
 
 \newglossaryentry{xmlg}
 {
   name=\glslink{xml}{XML},
-  description={ FGGSDF }
+  description={ è un linguaggio marcatore (di markup in inglese), cioè attraverso dei tag è possibile definire e caratterizzare gli elementi,
+  solitemente del testo, contenuti al loro interno. La particolarità di XML è che rende possibile creare i propri tag e per questo viene
+  chiamato estensibile (eXstensible). }
 }
 
 \newglossaryentry{Git}
 {
   name=Git,
-  description={ FGGSDF }
+  description={ È un software per il controllo di versione, nato ufficialmente nel 2005. Venne scritto inizialmente come strumento per lo
+  sviluppo del kernel di Linux, sistema operativo open source molto diffuso, poi rilasciato al pubblico e allargato agli altri sistemi
+  operativi, come Windows e Mac. L'interfaccia è a riga di comando (\gls{cli}) ed è sviluppato tramite C++, Python e altri linguaggi che lo
+  rendono molto leggero e versatile. }
 }
 
 \newglossaryentry{Incrementale}
 {
-  name=Incrementale,
-  description={ FGGSDF }
+  name=incrementale,
+  description={ È un concetto di Ingegneria del Software, che indica che il modello di sviluppo di un progetto viene ripetuto ad ogni
+  incremento. In pratica il prodotto viene portato a una fase funzionante iniziale e da questo momento si potranno applicare incrementi,
+  cioè i passi dello sviluppo software (tranne analisi, progettazione) verranno ogni volta rieseguti sul prodotto ottenuto. }
 }
 
 \newglossaryentry{Agile}
 {
-  name=Agile,
-  description={ FGGSDF }
+  name=agile,
+  description={ In ingegneria del software è un insieme di modelli di sviluppo, nate in contrapposizione alla rigidità di quelli precedenti.
+  Questi si basano su quattro principi fondamentali: \begin{itemize}
+    \item gli individui e l'interazione è più importante dei processi e degli strumenti
+    \item il software funzionante è più importante della documentazione comprensibile
+    \item la collaborazione con il cliente piuttosto che la negoziazione del contratto
+    \item la risposta al cambiamento è più importante di seguire il piano
+  \end{itemize}}
 }
 
 \newglossaryentry{Scrum}
 {
   name=Scrum,
-  description={ FGGSDF }
+  description={ È un metodo di sviluppo che sposa il manifesto \gls{Agile}. Questo definisce com'è composto un team e quali sono i
+  comportamenti da avere all'interno di esso. Il metodo Scrum si sposa bene con il modello incrementale, questo infatti prevede degli eventi
+  tra i quali lo \gls{Sprint}, il Daily Stand-up, la rethrospective, che vanno ripetuti ad ogni incremento.  }
 }
 
 \newglossaryentry{Sprint}
 {
   name=Sprint,
-  description={ FGGSDF }
+  description={ Lo sprint è un'intervallo di tempo, solitamente di 2-4 settimane, utilizzato nel metodo \gls{Scrum} come unità di misura che
+  intercorre tra una revisione e un'altra. Durante questo periodo ogni lavoro assegnato dovrà essere svolto e pronto per il successivo sprint. }
 }
 
-\newglossaryentry{Daily Scrum}
+\newglossaryentry{Daily Stand-up}
 {
-  name=Daily Scrum,
-  description={ FGGSDF }
-}
-
-\newglossaryentry{Ionic}
-{
-  name=Ionic,
-  description={ FGGSDF }
+  name=Daily Stand-up,
+  description={ È una pratica che fa parte del metodo Scrum che prevede di fare una riunione giornaliera di massimo 15 minuti, nella quale
+  ogni membro del team dice cos'ha fatto prima del meeting e pianifica cosa andrà a fare fino al successivo. }
 }
 
 \newglossaryentry{framework}
 {
   name=framework,
-  description={ FGGSDF }
+  description={ Nello sviluppo software indica un insieme di strumenti e un'architettura a supporto del prodotto sul quale potrai andare a
+  progettare e realizzare il prodotto. Spesso viene utilizzato per indicare un'insieme di librerie corredate da software che le integrano in
+  maniera facilitata a ciò che le utilizza }
 }
 
 \newglossaryentry{Android}
 {
   name=Android,
-  description={ FGGSDF }
+  description={ È un sistema operativo \gls{open source} per dispositivi mobili scritto su kernel Linux. Sviluppato da Google, esce con il primo
+  smartphone nel 2007, ora è il sistema operativo mobile più diffuso al mondo. Le applicazioni installabili sono fornite tramite pacchetti
+  APK, che, per i dispositivi che hanno installato i servizi Google, sono scaricabili da Play Store.}
 }
 
 \newglossaryentry{iOS}
 {
   name=iOS,
-  description={ FGGSDF }
+  description={ È un sistema operativo proprietario di Apple Inc. per i suoi dispositivi mobili. Le applicazioni disponibili per iOS si
+  possono scaricare da App Store.}
 }
 
 \newglossaryentry{frontend}
 {
-  name=frontend,
-  description={ FGGSDF }
+  name=front-end,
+  description={ Nella progettazione software e sviluppo è la parte del sistema che va a interagire direttamente con l'utente. L'esempio più
+  banale può essere quello dell'interfaccia grafica. }
 }
 
 \newglossaryentry{backend}
 {
-  name=backend,
-  description={ FGGSDF }
+  name=back-end,
+  description={ Nella progettazione software e sviluppo è la parte del sistema che gestisce le componenti non visibili all'utente.
+  Semplificando è la logica che si occupa di elaborare i dati provenienti da un'interfaccia, producendo un output o modificando lo stato del
+  sistema. }
 }
 
 \newglossaryentry{open source}
 {
   name=open source,
-  description={ FGGSDF }
+  description={ Un software è definito open source, se il suo codice sorgente è accessibile pubblicamente. Questo comporta a sancire delle politiche di
+  distribuzione che sono regolamentate da particolari licenze (MIT o Apache ad esempio). Un software open source è considerato libero, in
+  contrapposizione al concetto di gratuito. Esso infatti è posseduto molto spesso da una azienda software che concede l'utilizzo, la
+  modifica e la distribuzione libera regolamentate, però, dalle licenze succitate.  }
 }
 
 \newglossaryentry{Google}
 {
   name=Google,
-  description={ FGGSDF }
+  description={ Google LLC è una delle più importanti aziende che opera nel settore informatico e offre servizi prevalentemente online. Ad
+  essa è associato il nome dell'omonimo motore di ricerca dal quale la società è partita ad espandersi, diventando l'attuale colosso leader
+  del settore a livello mondiale.  }
 }
 
 \newglossaryentry{tipizzato}
 {
   name=Tipizzato,
-  description= { fasdfa }
+  description= { Si riferisce a una caratteristica di un linguaggio di programmazione nel quale ogni programmatore deve associare ad ogni
+  variabile il proprio tipo. Il compilatore associato deve garantire poi che le caratteristiche associato ad ogni tipo siano rispettate
+  (tipizzazione statica).  }
 }
 
 \newglossaryentry{Issue Tracking System}
 {
   name=Issue Tracking System,
-  description={ dfasdga }
+  description={ Sono dei particolari software che permettono la pubblicazione, la gestione e la rimozione di issues (in italiano
+  problemi/questioni). Sono utilizzati in combinazione con VCS come Git per tenere traccia di alcune criticità del software, rendendole
+  visibili agli altri programmatori. }
 }
 
 \newglossaryentry{Go}
 {
   name=Go,
-  description={ fdasf a}
+  description={ È un linguaggio open source sviluppato da Google, che si contraddistingue per essere particolarmente efficiente nel
+  risolvere problemi legati alla concorrenza.}
 }
 
 
 \newglossaryentry{product baseline}
 {
   name=Product Baseline,
-  description={ fdasf a}
+  description={ In ingegneria del software indica gli attributi attribuili a un prodotto software in un punto definito nel tempo. }
 }
 
 \newglossaryentry{diagramma di Gantt}
 {
   name=diagramma di Gantt,
-  description={ fdasf a}
+  description={ È una tipologia di diagramma usata principalmente nella pianificazione di progetto. L'asse orizzontale rappresenta il tempo, suddiviso in fasi e quello
+  verticale le attività. Le barre nell'area del grafico descrivono la durata delle attività stesse, che si possono sovrapporre in verticale,
+  indicando la possibilità di uno svolgimento parallelo di quest'ultime.}
 }
 
 \newglossaryentry{crossplatform}
 {
-  name=crossplatform,
-  description={f dfadsf asd }
+  name=cross-platform,
+  description={ Si definisce software cross-platform o multipiattaforma un applicazione implementata su più piattaforme. Il termine
+  piattaforma può riferirsi all'hardware o al sistema operativo. Due piattaforme diverse possono quindi differire per l'architettura fisica
+  o per quella software, come può essere nel caso di un dispositivo \gls{Apple} e \gls{Android}. }
 }
 
 \newglossaryentry{web-based}
 {
-  name=crossplatform,
-  description={f dfadsf asd }
+  name=,
+  description={ Un servizio è considerabile web-based se utilizza tecnologie e linguaggi associati al mondo del web. Questi possono essere
+  verificati se, ad esempio, possono essere utilizzati all'interno di un browser.}
 }
 
 \newglossaryentry{background}
 {
-  name=crossplatform,
-  description={f dfadsf asd }
+  name=background,
+  description={ In questo elaborato con il termine background si indica lo stato di un applicazione che sta eseguendo, ma che non
+  può essere controllata dall'utente. Si oppone al termine foreground che definisce quando un utente esegue l'applicazione ma può
+  interagire direttamente con essa.  }
 }
 
 \newglossaryentry{SDK}
 {
   name=Software Development Kit,
-  description={f dfadsf asd }
+  description={  }
 }
 
 
@@ -222,4 +279,42 @@
 {
   name=database,
   description={f dfadsf asd }
+}
+
+\newglossaryentry{proxy}
+{
+  name={proxy},
+  description={ sdf aa }
+}
+
+\newglossaryentry{facade}
+{
+  name={facade},
+  description={ sdf aa }
+}
+
+\newglossaryentry{Product Baseline}
+{
+  name={product baseline},
+  description={f  sdfa sdfa}
+}
+
+\newglossaryentry{ideg}
+{
+  name=\glslink{ide}{IDE},
+  description={f afsdf asf }
+}
+
+\newglossaryentry{cig}
+{
+  name=\glslink{ci}{Continous Integration},
+  description={f  sdfa sdfa}
+}
+
+\newglossaryentry{nodejs}{name={Node.js},description={fas df asd fas }}
+
+\newglossaryentry{httpg}
+{
+  name=\glslink{http}{HTTP},
+  description={f  sdfa sdfa}
 }
