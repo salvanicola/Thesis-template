@@ -39,7 +39,7 @@ echo ---------------------------------
 
 rm $DIR/*.acn $DIR/*.aux $DIR/*.bbl $DIR/*.bcf $DIR/*.glo
 rm $DIR/*.ist $DIR/*.lof $DIR/*.lot $DIR/*.run.xml $DIR/*.toc
-rm $DIR/*.acr $DIR/*.alg $DIR/*.glg 
+rm $DIR/*.acr $DIR/*.alg $DIR/*.glg $DIR/*.gls
 # Per mantenere i log commentare la linea seguente
 rm $DIR/*.blg  $DIR/*.log
 
