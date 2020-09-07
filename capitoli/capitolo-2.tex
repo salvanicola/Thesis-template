@@ -73,7 +73,18 @@ o riscrivere completamente l'applicazione. \\
 
 \subsubsection{Problematiche dell'applicazione UCIS Report Tool}
 L'applicazione attualmente utilizzata da UCIS è stata sviluppata interamente in linguaggio nativo, esclusivamente per il
-sistema operativo \gls{Android}. L'interfaccia si presenta a primo impatto un po' antiquata 
+sistema operativo \gls{Android}. Il principale problema rimane in ogni caso la scarsa precisione nella lettura delle
+tracce GPS. L'invio dei log e troppo dilazionato nel tempo rendendo la traccia risultante frastagliata e alle volte
+incomprensibile. Essendo la funzione primaria questo risulta essere un grosso problema, ma non è certamente l'unico. La
+disposizione delle viste non è logica e lascia l'utente disorientato. Inoltre i form risultano essere errati: alcune
+delle opzioni non devono essere presenti e la selezione di una non provoca effetti su un'altra. Ad esempio se volessi
+creare una nuova attività dovrei selezionare la macrocategoria e di conseguenza filtrare la selezione della categoria
+successiva. Ciò non avviene e provoca un'errore nell'invio del form. \\
+\noindent Forse il problema più grande è la non manutenibilità di questo software. Il codice risulta poco modulare e la
+lettura delle classi ostica. È privo di documentazione formale e di una progettazione sensata. Risulta essere un
+prodotto morto e non professionale. \\
+\noindent Un altro punto negativo dell'applicazione è il kit grafico utilizzato, risulta essere vecchio e di sicuro non
+accattivante per l'utente e meno ancora per il cliente.
 
 \subsection{Obiettivi dello stage}
 \label{sec:obiettivi}

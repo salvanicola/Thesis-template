@@ -6,44 +6,7 @@
 \chapter{Introduzione}
 \label{cap:introduzione}
 %**************************************************************
-\section{Convenzioni tipografiche}
 
-Riguardo la stesura del testo, relativamente al documento sono state adottate le seguenti convenzioni tipografiche:
-\begin{itemize}
-	\item gli acronimi, le abbreviazioni e i termini ambigui o di uso non comune menzionati vengono definiti nel glossario, situato alla fine del presente documento;
-	\item per la prima occorrenza dei termini riportati nel glossario viene utilizzata la seguente nomenclatura: \emph{parola}\glsfirstoccur;
-	\item i termini in lingua straniera o facenti parti del gergo tecnico sono evidenziati con il carattere \emph{corsivo}.
-\end{itemize}
-
-\section{Scopo del documento}
-In questo documento andrò a descrivere la mia esperienza di stage, raccontando la mia preparazione, lo sviluppo e le mie valutazioni
-riguardo ad esso. Inoltre descriverò in modo approfondito le tecnologie che sono andato ad analizzare e studiare e le mie opinioni su di esse.
-
-%**************************************************************
-
-\subsection{Organizzazione del testo}
-
-\begin{description}
-
-    \item[{\hyperref[cap:introduzione]{Il primo capitolo}}] descrive il contesto aziendale e alcune delle tecnologie utilizzate durante l'esperienza di stage.
-
-    \item[{\hyperref[cap:descrizione-stage]{Il secondo capitolo}}] approfondisce i contenuti del progetto di stage e i motivi della scelta.
-
-    \item[{\hyperref[cap:ilprogetto]{Il terzo capitolo}}] descrive in modo dettagliato ciò che è stato fatto durante lo stage.
-
-    \item[{\hyperref[cap:valutazione-retrospettiva]{Il quarto capitolo}}] contiene le considerazioni a posteriori dell'esperienza di stage.
-
-\end{description}
-
-% Introduzione al contesto applicativo.\\
-% \noindent Esempio di utilizzo di un termine nel glossario \\
-% \gls{api}. \\
-% \noindent Esempio di citazione in linea \\
-% \cite{site:agile-manifesto}. \\
-% \noindent Esempio di citazione nel pie' di pagina \\
-% citazione\footcite{womak:lean-thinking} \\
-
-%**************************************************************
 \section{L'azienda}
 
 \begin{figure}[htbp]
@@ -71,39 +34,39 @@ Alternative Studio ha pensato, quindi, di aprire una posizione perfetta per un l
 %**************************************************************
 
 
-\section{Strumenti utilizzati}
+% \section{Strumenti utilizzati}
 
-Lo stage si è focalizzato sull'utilizzo di tecnologie mobile per lo sviluppo di applicazioni per smartphone. Data la veloce evoluzione di
-questo ramo, Alternative Studio ha avviato uno studio approfondito per scegliere quelle più adatte allo sviluppo della
-propria applicazione. Di seguito alcune tecnologie che siamo andati a scegliere per lo sviluppo. Lo studio approfondito e le motivazioni
-della scelta saranno spiegati in dettaglio nel \autoref{sec:studiodifattibilita}.
+% Lo stage si è focalizzato sull'utilizzo di tecnologie mobile per lo sviluppo di applicazioni per smartphone. Data la veloce evoluzione di
+% questo ramo, Alternative Studio ha avviato uno studio approfondito per scegliere quelle più adatte allo sviluppo della
+% propria applicazione. Di seguito alcune tecnologie che siamo andati a scegliere per lo sviluppo. Lo studio approfondito e le motivazioni
+% della scelta saranno spiegati in dettaglio nel \autoref{sec:studiodifattibilita}.
 
-\subsection{Ionic}
+% \subsection{Ionic}
 
-Ionic è un \gls{framework} open source che fornisce strumenti agli sviluppatori, come librerie grafiche e plugins nativi per dialogare
-con \gls{Android} e \gls{iOS}. Esso permette lo sviluppo mobile utilizzando tecnologie standard web come Angular, React e Vue, evitando lo
-sviluppo in linguaggio nativo dei singoli sistemi operativi. Questo è reso possibili da wrapper esistenti su ogni piattaforma volti a
-eseguire l'applicazione.
+% Ionic è un \gls{framework} open source che fornisce strumenti agli sviluppatori, come librerie grafiche e plugins nativi per dialogare
+% con \gls{Android} e \gls{iOS}. Esso permette lo sviluppo mobile utilizzando tecnologie standard web come Angular, React e Vue, evitando lo
+% sviluppo in linguaggio nativo dei singoli sistemi operativi. Questo è reso possibili da wrapper esistenti su ogni piattaforma volti a
+% eseguire l'applicazione.
 
-\subsection{Angular}
+% \subsection{Angular}
 
-Come framework web per lo sviluppo \gls{frontend} si è utilizzato Angular, evoluzione del noto AngularJS, sviluppato in prevalenza da Google, ma con distribuzione \gls{open source}. Le applicazioni Angular sono eseguite direttamente lato client dal web browser e quindi non vengono reinviate indietro al web server. Inoltre sono nativamente responsive, cioè i toolkit utilizzate si adattano al dispositivo sul quale sono eseguite. \\
-Nonostante l'esperenzia di Alternative Studio sull'analogo Vue, si è deciso di adottare Angular dato che Ionic-Vue era ancora in fase di
-beta e quindi potenzialmente instabile e soggetto a cambiamenti.
+% Come framework web per lo sviluppo \gls{frontend} si è utilizzato Angular, evoluzione del noto AngularJS, sviluppato in prevalenza da Google, ma con distribuzione \gls{open source}. Le applicazioni Angular sono eseguite direttamente lato client dal web browser e quindi non vengono reinviate indietro al web server. Inoltre sono nativamente responsive, cioè i toolkit utilizzate si adattano al dispositivo sul quale sono eseguite. \\
+% Nonostante l'esperenzia di Alternative Studio sull'analogo Vue, si è deciso di adottare Angular dato che Ionic-Vue era ancora in fase di
+% beta e quindi potenzialmente instabile e soggetto a cambiamenti.
 
-\subsubsection{TypeScript}
+% \subsubsection{TypeScript}
 
-TypeScript è un linguaggio implementato da Microsoft nel 2012, derivato da JavaScript, al quale aggiunge il concetto di tipizzazione e di orientamento agli oggetti. Nonostante JS sia un linguaggio \gls{tipizzato}, esso non fa nessun tipo di controllo statico sui tipi effettuando sempre una conversione dinamica. Questo produce spesso degli errori difficili da trovare e correggere, per questo TypeScript introduce la compilazione che non fa altro che tradurre il codice in JavaScript, eseguendo prima un controllo dei tipi.\\
-Grazie a queste caratteristiche TypeScript non è stato utilizzato solo per il \gls{frontend}, ma anche per parte della logica
-dell'applicazione. Per questo e per il fatto che è il linguaggio adottato nativamente da Angular sarà quello più utilizzato durante lo
-sviluppo.
+% TypeScript è un linguaggio implementato da Microsoft nel 2012, derivato da JavaScript, al quale aggiunge il concetto di tipizzazione e di orientamento agli oggetti. Nonostante JS sia un linguaggio \gls{tipizzato}, esso non fa nessun tipo di controllo statico sui tipi effettuando sempre una conversione dinamica. Questo produce spesso degli errori difficili da trovare e correggere, per questo TypeScript introduce la compilazione che non fa altro che tradurre il codice in JavaScript, eseguendo prima un controllo dei tipi.\\
+% Grazie a queste caratteristiche TypeScript non è stato utilizzato solo per il \gls{frontend}, ma anche per parte della logica
+% dell'applicazione. Per questo e per il fatto che è il linguaggio adottato nativamente da Angular sarà quello più utilizzato durante lo
+% sviluppo.
 
-\subsection{Android e Java}
+% \subsection{Android e Java}
 
-\gls{Android} è il sistema operativo mobile più diffuso nel pianeta e di proprietà di \gls{Google}. È stato scelto come riferimento durante
-lo sviluppo, nonostante Ionic offra la possibilità di sviluppare in crossplatform con lo stesso codice. Al contrario alcune
-funzionalità che si interfacciano con il sistema operativo, come ad esempio la componente GPS, devono essere sviluppate in linguaggio
-nativo, che nel caso di \gls{Android} è \gls{java}.
+% \gls{Android} è il sistema operativo mobile più diffuso nel pianeta e di proprietà di \gls{Google}. È stato scelto come riferimento durante
+% lo sviluppo, nonostante Ionic offra la possibilità di sviluppare in crossplatform con lo stesso codice. Al contrario alcune
+% funzionalità che si interfacciano con il sistema operativo, come ad esempio la componente GPS, devono essere sviluppate in linguaggio
+% nativo, che nel caso di \gls{Android} è \gls{java}.
 
 %**************************************************************
 
@@ -175,4 +138,41 @@ tramite plugins.
 Programma a supporto della codifica, il quale mi ha aiutato nell'interfacciarmi alle API. Postman permette di fare chiamate \acrshort{http} ad
 un'API e di visualizzarne il risultato. È un software molto utile nel quale puoi, ad esempio, testare le stringhe che utilizzerai nel tuo
 codice, o per analizzare il risultato per capire come utilizzarlo.
+
+%**************************************************************
+
+\section{Convenzioni tipografiche}
+
+Riguardo la stesura del testo, relativamente al documento sono state adottate le seguenti convenzioni tipografiche:
+\begin{itemize}
+	\item gli acronimi, le abbreviazioni e i termini ambigui o di uso non comune menzionati vengono definiti nel glossario, situato alla fine del presente documento;
+	\item per la prima occorrenza dei termini riportati nel glossario viene utilizzata la seguente nomenclatura: \emph{parola}\glsfirstoccur;
+	\item i termini in lingua straniera o facenti parti del gergo tecnico sono evidenziati con il carattere \emph{corsivo}.
+\end{itemize}
+
+\section{Scopo del documento}
+In questo documento andrò a descrivere la mia esperienza di stage, raccontando la mia preparazione, lo sviluppo e le mie valutazioni
+riguardo ad esso. Inoltre descriverò in modo approfondito le tecnologie che sono andato ad analizzare e studiare e le mie opinioni su di esse.
+
+
+\subsection{Organizzazione del testo}
+
+\begin{description}
+
+    \item[{\hyperref[cap:descrizione-stage]{Il secondo capitolo}}] approfondisce i contenuti del progetto di stage e i motivi della scelta.
+
+    \item[{\hyperref[cap:ilprogetto]{Il terzo capitolo}}] descrive in modo dettagliato ciò che è stato fatto durante lo stage.
+
+    \item[{\hyperref[cap:valutazione-retrospettiva]{Il quarto capitolo}}] contiene le considerazioni a posteriori dell'esperienza di stage.
+
+\end{description}
+
+% Introduzione al contesto applicativo.\\
+% \noindent Esempio di utilizzo di un termine nel glossario \\
+% \gls{api}. \\
+% \noindent Esempio di citazione in linea \\
+% \cite{site:agile-manifesto}. \\
+% \noindent Esempio di citazione nel pie' di pagina \\
+% citazione\footcite{womak:lean-thinking} \\
+
 %**************************************************************
