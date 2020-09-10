@@ -35,6 +35,7 @@ Le \gls{api} esistenti mettono a disposizione quattro tipi di richiesta:
   \item l'autenticazione avviene tramite il metodo POST, dove nel body è inserita la username e la password. Il
   risultato ritorna la chiave, utilizzabile nelle richieste future. In caso le credenziali siano sbagliate ritornerà una
   pagina HTML con il seguente errore:
+
   \begin{lstlisting}[language=HTML]
     <div id="errorboxheader">0 - Class &#039;APIUnauthorisedException&#039; not found</div>
   \end{lstlisting}
@@ -134,6 +135,90 @@ pulsante di conferma per l'invio dei dati.
 Premendo su uno dei record nella lista si aprirà la vista dedicata alla singola attività. Da qui si potrà avviare,
 mettere in pausa o terminare. Saranno visualizzate, inoltre, delle informazioni relative ad essa, come il numero di log
 registrati e inviati al server, il tempo trascorso durante l'attività e quelle inserite nella nuova attività.
+
+\section{Realizzazione}
+
+La fase di codifica è stata una semplice conseguenza di quello progettato in precedenza. Ormai potevo considerarmi
+sicuro degli strumenti che utilizzavo. Per la realizzazione ho proceduto in maniera modulare, prendendo in
+considerazione un modulo per volta.
+
+\subsection{Difficoltà riscontrate}
+Possiamo dividere le difficoltà in due categorie: quelle derivanti dalla progettazione e quelle legate al linguaggio.
+Riguardo alle prime sono state risolte e superate grazie al metodo \gls{Agile} che mi ha permesso assieme al tutor di
+andare a correggere anche durante la codifica errori o parti dell'architettura che sono risultate irrealizzabili così
+come progettate inizialmente. Da questo punto di vista non sono stati effettuati grandi cambiamenti. \\
+Per quanto riguarda le difficoltà derivanti dal linguaggio abbiamo adottato diverse soluzioni che descriverò nelle
+sezioni successive.
+\subsubsection{Asincronia dei processi}
+Forse la fonte di errori è stata quella derivante dalla gestione della sincronia delle funzioni in Typescript. In questo
+linguaggio, come anche in Javascrpt, questo aspetto è delegato alle \textit{Promise}, promesse in italiano. Le
+\textit{Promise} sono degli oggetti che possono assumere tre stati: risolta, respinta, in attesa. Ai primi due stati è
+assegnata una funzione, chiamata callback, da eseguire nel caso la promessa li assuma. Tendenzialmente lo stato di
+\textit{rejected}, respinta in italiano, ha associata una funzione per gestire l'errore derivato da una qualche
+chiamata. \\ 
+\noindent Le promesse solitamente sono ritornate da funzioni asincrone, che non danno la disponibilità dell'oggetto in
+modo immediato. Infatti, la funzione una volta chiamata non viene aspettata di modo che ritorni un risultato, ma
+l'esecuzione continua subito dopo la chiamata. Una promessa non gestita è molto pericolosa, rischia di desincronizzare 
+lo stack delle chiamate e rischia di creare concorrenza sulle risorse. D'altra parte queste sono uno strumento molto
+potente. Permettono infatti a processi molto lunghi, come può essere una chiamata alle \gls{api}, che può richiedere
+anche secondi, di non bloccare l'esecuzione dell'applicazione. Ed è per questo che le librerie e i plugin utilizzati
+nella maggior parte dei casi utilizzano le \textit{Promise}. \\
+\noindent Per gestirle a livello di codifica ho adattato una tecnica comune in questo linguaggio, che riguarda
+l'utilizzo del \textit{then}. Questo è una funzione della Promise che può essere chiamata, ad esempio, da una chiamata
+di funzione e richiede una funzione inline (chiamate \textit{lambda function} o \textit{arrowfunction} in gergo) da
+eseguire non appena la promessa è stata risolta. Questo permette di inserire all'interno di quest'ultima funzione del
+codice da eseguire subito dopo che l'oggetto di ritorno è disponibile e utilizzabile. Di seguito un esempio di codice
+di una funzione che gestisce il salvataggio di un log.
+\begin{lstlisting}[language=Javascript]
+  saveBacklog(location: GeolocationResponse, item: LocationData) {
+    await this.uploader.log(item)
+        .then( (success) => {
+            console.log('Inserted in Room Database', success);
+            this.uploader.sync();
+        })
+        .catch( error => {
+            console.log('Error converting to locationdata');
+        });
+    await this.saveALog(location, 'log')
+        .then(() => {
+            console.log('Log Saved');
+        });
+  }
+\end{lstlisting}
+In questa porzione di codice possiamo notare che sull'oggetto uploader è chiamata la funzione log che restituisce una
+promessa. All'interno della promessa viene ritornato un valore booleano, quindi o vero o falso. Il \textit{then} cattura
+questo valore all'interno della variabile \textit{success} e solo successivamente chiama sull'pggetto uploader la
+funzione sync che verifica se è presente connessione e in caso positivo inizia a caricare i log in coda. Da notare due
+parole chiavi che ancora non sono state delucidatate. La prima è il \textit{catch}, che esattamente come nel \textit{then} gestisce il
+caso la promessa venga rifiutata. La seconda è \textit{await} sconsigliata da utilizzare, ma in certi casi essenziale,
+chiede alla funzione di aspettare il risultato in arrivo dalla Promise prima di continuare l'esecuzione.
+
+\subsubsection{\textit{Observables}, \textit{Promise} e Angular} 
+
+La gestione di componenti grafici in cambiamento legati al modello sottostante, come può essere l'indicatore numerico
+del numero dei log registrati, è stato per me un problema relativamente macchinoso da risolvere. Non c'è una tecnica
+condivisa nel gestire il legame tra un componente grafico e la struttura informativa sottostante in cambiamento. In
+Angular si usano molto spesso gli \textit{Observables}, oggetti che corrispondo a un noto \textit{design pattern}.
+Questo tipo di oggetti si dicono sottoscrivibili, cioè un soggetto può attraverso il comando subscribe reagire a un suo
+cambiamento. In pratica se su un oggetto di tipo Observables viene chiamata la sua funzione \textit{next}, che cambia il
+valore di quest'ultimo e avvisa tutti i soggetti \textit{subscriber} (cioè sottoscritti). Viene quindi implementato in
+questo modo: nella struttura sottostante, gli oggetti vengono definiti come \textit{Observables}e  all'interno del
+componente Angular vengono creati dei soggetti che rappresentano l'elemento grafico i quali si sottoscrivono ad esso. \\
+Un'altra tecnica, quella che ho personalmente utilizzato di più, è quella dell'utilizzo delle \textit{Promise}. Infatti
+questi oggetti, descritti nella sezione precedente, sono gestiti in automatico da Angular all'interno del component.
+Basterà quindi chiamare una funzione che restituisce un valore marcata \textit{async} all'interno del file
+\acrshort{html}, per renderla sensibile al cambiamento della stessa. Di seguito un esempio in un file \acrshort{html}.
+\begin{lstlisting}[language=html]
+  <ion-card>
+    <ion-card-header>
+        <ion-card-title>Stato</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+        <p>Stato: {{getStatus() | async}}</p>
+        <p>Log: {{getLogNum() | async}}</p>
+    </ion-card-content>
+  </ion-card>
+\end{lstlisting}
 
 \section{Verifica}
 Il processo di verifica e validazione è stato avviato dopo la codifica di una \gls{product baseline} funzionante. 
