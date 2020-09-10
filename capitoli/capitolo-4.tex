@@ -10,9 +10,10 @@
 % \intro{Breve introduzione al capitolo}
 
 \section{Obiettivi raggiunti}
-\subsection{Obiettivi dello stage}
-In questa sezione analizzerò quali degli obiettivi descritti nel \hyperref[sec:obiettivi]{capitolo 2} sono stati raggiunti e quali no, dando
-una giustificazione nel caso negativo.
+
+Prima di cominciare lo stage assieme al relatore \myProf e al mio tutor aziendale Francesco Costa è stato messo a punto
+un Piano di Lavoro, cioè un documento dove si è definito, in linea generale, gli obiettivi e la pianificazione dello
+stage. Di seguito la lista degli obiettivi programmati trattati in esso: 
 
 \renewcommand{\arraystretch}{2}
 \begin{longtable}{|p{10cm}|p{4cm}|}%
@@ -35,14 +36,15 @@ una giustificazione nel caso negativo.
     Applicazione funzionante anche su dispositivi senza servizi Google        & Non Soddisfatto \\ \hline
 \end{longtable}%
 
-\noindent In generale sono stati rispettati tutti gli obiettivi, tranne quelli ritenuti facoltativi. Questi non erano inseriti nel piano di lavoro, se
-non nell'ultima settimana in caso l'applicazione fosse stata già pronta. In ogni caso gli obiettivi facoltativi inseriti fanno parte dei requisiti
-dell'applicazione e per questo non sono stati esclusi completamente. Durante lo stage ho infatti studiato i metodi per le notifiche push su
-\gls{Android} e su come sviluppare applicazioni in dispositivi senza servizi Google, come ad esempio alcuni modelli recenti \textit{Huawei}.
-\\
-\noindent Grazie al metodo di lavoro utilizzato, ho rispettato anche il piano di lavoro concordato con il tutor aziendale. Le brevi riunioni quasi
-giornaliere durante le quali si definivano le piccole task, sono state molto utili allo scopo, velocizzando lo sviluppo e razionalizzando il
-tempo a disposizione per ognuna di esse. 
+\noindent In generale sono stati rispettati tutti gli obiettivi, tranne quelli ritenuti facoltativi. Quest'ultimi posso
+dire di averli trattati solo parzialmente e non averli completati. Durante lo stage ho infatti studiato i metodi per le
+notifiche push su \gls{Android} e su come sviluppare applicazioni in dispositivi senza servizi Google, come ad esempio
+alcuni modelli recenti \textit{Huawei}. Non nascondo un po' di rammarico nel non essere riuscito a completare tutti gli
+obiettivi, ma a posteriori posso dire che forse nel piano di lavoro siamo stati un po' troppo ambiziosi e non si sono
+considerati tutti i rischi. Per questo quelli facoltativi sono stati posti nell'ultima settimana, dando ovvia priorità
+agli altri. Considerando ciò posso comunque ritenermi soddisfatto del risultato ottenuto. Credo che parte il
+successo sia dovuto al metodo \gls{Agile} integrato nel nostro metodo di lavoro che ci ha permesso di settimana in
+settimana di definire chiaramente cosa sarei andato a fare, correggendo il piano se qualcosa avesse richiesto più tempo. 
 
 \subsection{Obiettivi personali}
 Questo stage aveva anche alcuni obiettivi personali descritti nella sezione \hyperref[sec:obiettivi-pers]{2.1.2}:
@@ -64,6 +66,55 @@ Questo stage aveva anche alcuni obiettivi personali descritti nella sezione \hyp
     \item Grazie a Stage-IT sono riuscito a raccogliere molti contatti. Mi piacerebbe continuare a collaborare con \acrlong{asd} nei suo
     progetti futuri.
 \end{itemize}
+
+\section{Valutazione degli strumenti utilizzati}
+
+Gli strumenti che mi ha messo a disposizione \acrlong{asd} sono stato un notevole supporto al mio lavoro.
+
+\paragraph{Gitlab} Avendo avuto esperienza con altri software, come Github, posso dire che mi è sembrato completo in
+tutte le sue funzionalità. Il sistema di issues è stato utilissimo a notificare e salvare idee. Purtroppo alcune delle
+sue parti non sono state utilizzate a dovere durante il progetto, come quella che si occupa della \gls{ci} o le
+\textit{operations}, piccoli script che vengono eseguiti a ogni push, che possono calcolare, ad esempio alcuni dei
+valori di verifica del codice. 
+
+\paragraph{Codifica} WebStorm è un'\gls{ide} potentissimo, completo sotto ogni punto di vista. Ha moltissime
+funzionalità e supporta moltissimi linguaggi. Tuttavia l'ho trovato molto pesante per le risorse del computer,
+soprattutto la RAM, e con molti errori e bug, che spesso interrompono il workflow. 
+
+\paragraph{Postman} Il software è risultato molte utile e perfetto per lo scopo. Mi ha permesso di testare le API, prima
+di procedere con la codifica. La creazione di un \textit{environment}, cioè una collezione di richeste salvate e
+ordinate, si è rivelato ottimo per la collaborazione con gli altri componenti del team.
+
+\section{Valutazione delle tecnologie scelte}
+\paragraph{Ionic} Sono rimasto molto soddisfatto dal framework scelto. Il supporto e le soluzioni proposte della community sono
+sempre state adeguate al problema. Ci sono alcuni punti negativi, quali una documentazione a tratti troppo sintetica o
+incompleta e la scelta limitata dei plugin nativi disponibili. Questo ci ha portato durante il progetto a sviluppare un
+plugin apposito per la gestione degli account tramite il manager a disposizione dei dispositivi Android. In generale
+l'effettiva versatilità del sistema e la disponibilità di librerie grafiche moderne e piacevoli sono state motivo per
+apprezzare sempre di più questo potente framework.
+
+\paragraph{Angular} È stato un eccellente piattaforma nel quale sviluppare l'applicazione. Ho avuto molte difficoltà nel
+gestire le risorse asincrone, penso che esistano sistemi meno macchinosi. Ho apprezzato invece l'architettura che
+garantisce una modularità quasi obbligata e quindi uno sviluppo eccellente da parte di un team.
+
+\paragraph{Plugin utilizzati}
+Nonostante Ionic offrisse dei plugin cosiddetti \textit{nativi}, questi non erano altro che adattatori per Capacitor, di plugin
+sviluppati per Cordova. Sono rimasto a lungo a leggere la loro documentazione che spesso non si è rivelata
+professionale, si parla, comunque di progetti open source. Non nego inoltre di essere spesso andato a leggere il loro
+codice per capire come dovessero essere utilizzati. Tuttavia questa scelta è stata fatta in maniera quasi obbligata date
+le risorse a disposizione del progetto. 
+
+\section{Considerazioni sul prodotto}
+Quello che ho ottenuto alla fine del progetto, non è certamente un prodotto che può considerarsi completo. Rispetta
+effettivamente i requisiti imposti inizialmente, ma possiede ancora alcune imperfezioni che sicuramente verrano corrette
+con il tempo. L'applicazione non è ancora stata resa disponibile ai membri di \gls{ucis}, ma è stata testata da alcuni.
+Le impressioni sono ottime ed è saltato all'occhio il confronto con l'applicazione precedente. È vero che l'impatto su
+un utente inesperto di un pacchetto grafico moderno e accattivante, è sicuramente forte, ma sono stati notate le
+soluzioni ai problemi dell'applicazione precedente. \\
+\noindent Sono state definite comunque delle posibili estensioni al progetto. Si è programmato di portare a termine gli
+obiettivi facoltativi, implementazione delle notifiche push, integrazione della chat e l'applicazione funzionante senza
+serivizi Google. Inoltre si stanno prendendo accordi per sviluppare la versione iOS, alla quale spero di partecipare.
+
 
 \section{Conoscenze e competenze acquisite}
 \subsection{Collaborazione con i colleghi}
