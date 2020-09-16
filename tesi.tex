@@ -95,12 +95,27 @@
 
 \usepackage[italian]{varioref}          % riferimenti completi della pagina
 
-\usepackage[dvipsnames]{xcolor}         % colori
-
 \usepackage{booktabs}                   % tabelle
 \usepackage{tabularx}                   % tabelle di larghezza prefissata
 \usepackage{longtable}                  % tabelle su più pagine
 \usepackage{ltxtable}                   % tabelle su più pagine e adattabili in larghezza
+
+\RequirePackage{filecontents}
+
+\begin{filecontents*}{\jobname.xmpdata}
+  \Title{Tecnologie web per lo sviluppo di applicazioni mobile ibride}
+  \Author{Nicola Salvadore}
+  \Language{it-IT}
+  \Subject{Thesis of Nicola Salvadore about his stage}
+  \Keywords{keyword1\sep keyword2\sep keyword3}
+\end{filecontents*}
+
+\PassOptionsToPackage{dvipsnames}{xcolor} % colori PDF/A
+
+\usepackage{colorprofiles}
+
+\usepackage[a-2b,mathxmp]{pdfx}[2018/12/22]
+\hypersetup{pdfpagelabels}
 
 \usepackage[backend=biber,style=verbose-ibid,hyperref,backref]{biblatex}
                                         % eccellente pacchetto per la bibliografia;
